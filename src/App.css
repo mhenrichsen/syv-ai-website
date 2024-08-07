@@ -95,6 +95,18 @@
   .container #book_meeting {
     display: none;
   }
+  
+  .offerings {
+    display: grid;
+  }
+  
+  .offerings div {
+    width: 100%;
+  }
+
+  .danskGPTimg_and_text {
+    display: grid;
+  }
 }
 
 @media (min-width: 765px) {
@@ -105,13 +117,6 @@
 }
 
 @media (max-width: 765px) {
-  .offerings {
-    display: grid;
-  }
-  
-  .offerings div {
-    width: 100%;
-  }
 
 }
 

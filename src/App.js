@@ -149,14 +149,21 @@ const LandingPage = () => {
           <section id="danskgpt" className="py-20 bg-white">
             <div className="container mx-auto px-6">
               <h3 className="text-3xl font-semibold text-center mb-12">DanskGPT</h3>
-              <div className="flex flex-col md:flex-row items-center bg-gray-100 p-8 rounded-lg shadow-md">
-                <div className="md:w-1/2 mb-8 md:mb-0">
-                  <MessageSquare className="text-blue-500 mb-4" size={32} />
-                  <p className="mb-4">DanskGPT er vores specialudviklede sprogmodel, skræddersyet til det danske sprog. Denne innovative teknologi tilbyder enestående fordele:</p>
-                  <li className="list-disc list-inside mb-2">In-house drift sikrer fuld GDPR-compliance og maksimal datasikkerhed</li>
-                  <li className="list-disc list-inside mb-2">Overlegne resultater: Overgår ChatGPT-4o i fire ud af syv sprogopgaver, herunder grammatik og opsummering</li>
-                  <li className="list-disc list-inside mb-2">Specialiseret i dansk kontekst og kultur</li>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid flex-col md:flex-row items-center bg-gray-100 p-8 rounded-lg shadow-md">
+                <div className="danskGPTimg_and_text flex">
+                  <div className="md:w-1/2 mb-8 md:mb-0">
+                    <MessageSquare className="text-blue-500 mb-4" size={32} />
+                    <p className="mb-4">DanskGPT er vores specialudviklede sprogmodel, skræddersyet til det danske sprog. Denne innovative teknologi tilbyder enestående fordele:</p>
+                    <li className="list-disc list-inside mb-2">In-house drift sikrer fuld GDPR-compliance og maksimal datasikkerhed</li>
+                    <li className="list-disc list-inside mb-2">Overlegne resultater: Overgår ChatGPT-4o i fire ud af syv sprogopgaver, herunder grammatik og opsummering</li>
+                    <li className="list-disc list-inside mb-2">Specialiseret i dansk kontekst og kultur</li>
+
+                    </div>
+                  <div className="md:w-1/2">
+                    <img src="/images/danskgpt.png" alt="DanskGPT Interface" className="rounded-lg" />
+                  </div>
+                </div>
+                  <div className="danskGPTstats grid grid-cols-1 md:grid-cols-3 gap-4">
                     {danskGPTStats.map((stat, index) => (
                       <div key={index} className="text-center">
                         <p className="text-2xl font-bold text-blue-600">{stat.value}</p>
@@ -164,10 +171,6 @@ const LandingPage = () => {
                       </div>
                     ))}
                   </div>
-                </div>
-                <div className="md:w-1/2">
-                  <img src="/images/danskgpt.png" alt="DanskGPT Interface" className="rounded-lg" />
-                </div>
               </div>
             </div>
           </section>
