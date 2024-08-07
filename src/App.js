@@ -114,49 +114,49 @@ const LandingPage = () => {
       </header>
 
       <main className="pt-20 px-4 md:px-8">
-      <div className="relative min-h-1/2 w-full overflow-hidden p-8 bg-gray-100">
-        {/* Background image */}
-        <div className="absolute inset-8 bg-gray-800 rounded-3xl overflow-hidden">
-          <img
-            src="/images/image.webp"
-            alt="Background"
-            className="w-full h-full object-cover opacity-50"
-          />
+      <div className="relative min-h-screen w-full overflow-hidden bg-gray-100 p-4 sm:p-8">
+      {/* Background image */}
+      <div className="absolute inset-0 sm:inset-8 bg-gray-800 rounded-3xl overflow-hidden">
+        <img
+          src="/images/image.webp"
+          alt="Background"
+          className="w-full h-full object-cover opacity-50"
+        />
+      </div>
+      {/* Content container */}
+      <div className="relative z-10 h-full flex flex-col justify-between p-4 sm:p-8">
+        {/* Main text */}
+        <div className="max-w-2xl mt-4 sm:mt-8">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 ml-2 sm:ml-6">
+            Vi er Danmarks mest nørderede AI-udviklere. Og det afspejler sig i vores resultater.
+          </h1>
         </div>
-        {/* Content container */}
-        <div className="relative z-10 h-full flex flex-col justify-between p-8 md:py-8">
-          {/* Main text */}
-          <div className="max-w-2xl mt-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 ml-6">
-              Vi er Danmarks mest nørderede AI-udviklere. Og det afspejler sig i vores resultater.
-            </h1>
-          </div>
-          {/* Smaller text and buttons */}
-          <div className="max-w-2xl mb-8">
-            <p className="text-xl text-white mb-4 ml-6 pt-32">
-              Vi bygger ikke kun AI-løsninger, der virker. <br />
-              Vi bygger løsninger virksomheder elsker at bruge.
-            </p>
-            {/* Buttons */}
-            <div className="flex space-x-4 mt-8 ml-6">
-              <a
-                href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 text-lg font-semibold"
-              >
-                Book et møde
-              </a>
-              <a
-                href="#om"
-                className="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold"
-              >
-                Lær mere
-              </a>
-            </div>
+        {/* Smaller text and buttons */}
+        <div className="max-w-2xl mb-4 sm:mb-8">
+          <p className="text-lg sm:text-xl text-white mb-4 ml-2 sm:ml-6 pt-8 sm:pt-16 lg:pt-32">
+            Vi bygger ikke kun AI-løsninger, der virker. <br />
+            Vi bygger løsninger virksomheder elsker at bruge.
+          </p>
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-4 sm:mt-8 ml-2 sm:ml-6">
+            <a
+              href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 text-base sm:text-lg font-semibold text-center"
+            >
+              Book et møde
+            </a>
+            <a
+              href="#om"
+              className="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-base sm:text-lg font-semibold text-center"
+            >
+              Lær mere
+            </a>
           </div>
         </div>
       </div>
+    </div>
 
 
         <section className="bg-white py-12 border-b">
