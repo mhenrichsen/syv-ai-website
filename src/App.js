@@ -135,7 +135,7 @@ const LandingPage = () => {
           <div className="max-w-2xl mb-8">
             <p className="text-xl text-white mb-4 ml-6 pt-32">
               Vi bygger ikke kun AI-løsninger, der virker. <br />
-              Vi bygger løsninger virksomheder elsker at bruge.
+              Vi bygger løsninger, virksomheder elsker at bruge.
             </p>
             {/* Buttons */}
             <div className="flex space-x-4 mt-8 ml-6">
