@@ -28,6 +28,89 @@
   color: #61dafb;
 }
 
+.MobileNavigation{
+  display: none;
+}
+
+.NavLinks ul {
+  display: flex;
+}
+ 
+.NavLinks ul li {
+  margin-left: 30px;
+}
+
+@media (max-width: 765px) {
+
+  .DesktopNavigation {
+    display: none;
+  }
+
+  .MobileNavigation {
+    display: flex;
+    align-items: center;
+    height: 5vh;
+  }
+  .MobileNavigation {
+    display: flex;
+    align-items: center;
+    height: 50px; /* Fixed height */
+    width: 200px; /* Fixed width */
+    transition: clip-path 2s;
+  }
+
+  .NavLinksWrapper {
+    max-height: 0; /* Start with height 0 */
+    overflow: hidden; /* Hide overflow content */
+    transition: max-height 0.5s ease-out; /* Smooth transition for height */
+  }
+
+  .NavLinks ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 80px; /* Fixed position from top, adjust as needed */
+    right: 0;
+    height: 350px; /* Fixed height */
+    width: 100%; /* Fixed width */
+    background: white;
+    padding: 0; /* Reset padding */
+    margin: 0; /* Reset margin */
+    list-style: none; /* Remove default list style */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  .NavLinks ul li {
+    margin-left: 30px;
+  }
+  
+  .HamburgerMenu {
+    position: absolute;
+    right: 2%;
+    cursor: pointer;
+  }
+  
+  .head
+
+  .container h1 {
+    display: none;
+  }
+  
+  .container #book_meeting {
+    display: none;
+  }
+}
+
+@media (min-width: 765px) {
+  .NavLinks .bookMeeting{
+    display: None;
+}
+  
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
