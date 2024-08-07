@@ -132,7 +132,7 @@ const LandingPage = () => {
           <section id="tjenester" className="py-20 bg-gray-100">
             <div className="container mx-auto px-6">
               <h3 className="text-3xl font-semibold text-center mb-12">Det vi tilbyder</h3>
-              <div className="flex flex-row justify-between gap-8">
+              <div className="offerings flex flex-row justify-between gap-8">
                 {offerings.map((offering, index) => (
                   <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 w-1/3">
                     <offering.icon className="text-blue-500 mb-4" size={32} />

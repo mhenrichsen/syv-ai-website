@@ -49,13 +49,8 @@
   .MobileNavigation {
     display: flex;
     align-items: center;
-    height: 5vh;
-  }
-  .MobileNavigation {
-    display: flex;
-    align-items: center;
-    height: 50px; /* Fixed height */
-    width: 200px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    /*width: 200px;  Fixed width */
     transition: clip-path 2s;
   }
 
@@ -70,7 +65,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     position: absolute;
-    top: 80px; /* Fixed position from top, adjust as needed */
+    top: 60px; /* Fixed position from top, adjust as needed */
     right: 0;
     height: 350px; /* Fixed height */
     width: 100%; /* Fixed width */
@@ -87,7 +82,7 @@
   
   .HamburgerMenu {
     position: absolute;
-    right: 2%;
+    right: 4%;
     cursor: pointer;
   }
   
@@ -107,6 +102,17 @@
     display: None;
 }
   
+}
+
+@media (max-width: 765px) {
+  .offerings {
+    display: grid;
+  }
+  
+  .offerings div {
+    width: 100%;
+  }
+
 }
 
 
