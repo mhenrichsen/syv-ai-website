@@ -30,7 +30,7 @@ const FadeInSection = ({ children }) => {
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-gray-100">
-      <header className="bg-white shadow-md fixed w-full z-50">
+      <header id='NavHeader' className="bg-white shadow-md fixed w-full z-50">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <h1 className="text-3xl font-bold text-blue-600">syv.ai</h1>
           <NavBar />
