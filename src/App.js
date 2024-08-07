@@ -161,7 +161,7 @@ const LandingPage = () => {
 
         <section className="bg-white py-12 border-b">
           <div className="container mx-auto px-6">
-            <h3 className="text-2xl font-semibold text-center mb-8">Virksomheder der stoler på os</h3>
+            <h3 className="text-2xl font-semibold text-center mb-8">Tilfredse kunder</h3>
             <div className="flex flex-wrap justify-center items-center gap-8">
               {logos.map((logo) => (
                 <div key={logo.name} className="w-40 h-20 flex items-center justify-center">
