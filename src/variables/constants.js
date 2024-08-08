@@ -32,24 +32,20 @@ export const testimonials = [
   
 export const faqItems = [
     {
-      question: "Hvad er syv.ai's primære ydelser?",
-      answer: "syv.ai er primært et innovativt konsulenthus med fokus på kunstig intelligens. Vi leverer skræddersyede AI-konsulentydelser og udvikler også AI-produkter, når vi identificerer løsninger, der kan gavne en bred vifte af virksomheder. Vores ekspertise spænder fra specialiserede konsulentydelser til udvikling af skalerbare AI-produkter."
-    },
-    {
       question: "Hvordan adskiller syv.ai sig fra andre AI-konsulentfirmaer?",
       answer: "syv.ai er unik som både konsulenter og udviklere af avancerede AI-teknologier. Vi er det eneste konsulenthus i Danmark, der har trænet og udgivet large language models (LLMs). Vores dedikation til open source, hvor de fleste af vores modeller er frit tilgængelige, demonstrerer vores tekniske ekspertise og commitment til innovation i AI-fællesskabet."
     },
     {
       question: "Hvilke typer virksomheder samarbejder syv.ai med?",
-      answer: "syv.ai samarbejder med et bredt spektrum af virksomheder, fra innovative startups og etablerede mellemstore virksomheder til nogle af verdens største og mest indflydelsesrige virksomheder. Vores fleksible tilgang tillader os at tilpasse vores ydelser til hver enkelt klients unikke behov, uanset deres størrelse eller branche."
+      answer: "syv.ai samarbejder med en bred vifte af virksomheder, fra startups og etablerede mellemstore virksomheder til nogle af verdens største og mest indflydelsesrige virksomheder. Vores fleksible tilgang tillader os at tilpasse vores ydelser til hver enkelt klients unikke behov, uanset deres størrelse eller branche."
     },
     {
       question: "Kan I give eksempler på konkrete AI-løsninger, I har implementeret?",
-      answer: "De fleste af vores projekter er underlagt fortrolighedserklæringer, men vores løsninger inkluderer implementering af avancerede chatbots, udvikling af prediktive analyseværktøjer, design af computer vision-systemer til kvalitetskontrol, og optimering af supply chain gennem AI-drevne prognoser. Hver løsning er skræddersyet til klientens specifikke behov."
+      answer: "De fleste af vores projekter er underlagt fortrolighedserklæringer, men vores løsninger inkluderer implementering af avancerede chatbots, automatisering af backoffice opgaver, translation modeller, og optimering af supply chain gennem AI-drevne prognoser. Hver løsning er skræddersyet til klientens specifikke behov."
     },
     {
       question: "Hvilke kompetencer har syv.ai's team?",
-      answer: "syv.ai's team består af topkvalificerede AI-ingeniører med ekspertise i machine learning, deep learning, NLP og computer vision, samt erfarne forretningsudviklere. Dette tværfaglige team sikrer, at vores leverancer er teknisk avancerede og succesfuldt implementeret i organisationen."
+      answer: "syv.ai's team består af AI-ingeniører med ekspertise i machine learning, deep learning og NLP, samt erfarne forretningsudviklere. Dette tværfaglige team sikrer, at vores leverancer er teknisk avancerede og succesfuldt implementeret i organisationen."
     },
     {
       question: "Hvordan holder syv.ai sig opdateret med de nyeste AI-trends og teknologier?",
