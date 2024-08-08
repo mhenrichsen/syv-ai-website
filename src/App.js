@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart, Code, BookOpen, MessageSquare, CheckCircle } from 'lucide-react';
+import { BarChart, Code, BookOpen, MessageSquare, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import NavBar from './NavBar/NavBar';
 import {offerings, danskGPTStats, testimonials, faqItems, logos, LogoImage} from "./variables/constants";
 
 const FadeInSection = ({ children }) => {
   const [isVisible, setVisible] = useState(false);
   const domRef = React.useRef();
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -28,6 +29,11 @@ const FadeInSection = ({ children }) => {
 };
 
 const LandingPage = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
   return (
     <div className="min-h-screen bg-gray-100">
       <header id='NavHeader' className="bg-white shadow-md fixed w-full z-50">
@@ -63,7 +69,7 @@ const LandingPage = () => {
               Vi bygger løsninger, virksomheder elsker at bruge.
             </p>
             {/* Buttons */}
-            <div className="flex space-x-4 mt-8 ml-6">
+            <div className="bookAndLearnButtons flex space-x-4 mt-8 ml-6">
               <a
                 href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen"
                 target="_blank"
@@ -74,7 +80,7 @@ const LandingPage = () => {
               </a>
               <a
                 href="#om"
-                className="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold"
+                className="learnMore bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold"
               >
                 Lær mere
               </a>
@@ -144,7 +150,7 @@ const LandingPage = () => {
             </div>
           </section>
         </FadeInSection>
-
+        
         <FadeInSection>
           <section id="danskgpt" className="py-20 bg-white">
             <div className="container mx-auto px-6">
@@ -199,17 +205,32 @@ const LandingPage = () => {
         </FadeInSection>
 
         <FadeInSection>
-          <section id="faq" className="py-20 bg-white">
-            <div className="container mx-auto px-6">
-              <h3 className="text-3xl font-semibold text-center mb-12">Ofte Stillede Spørgsmål</h3>
-              <div className="space-y-6">
+        <section id="faq" className="py-20 bg-gray-50">
+            <div className="container mx-auto px-4 md:px-6">
+              <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Ofte Stillede Spørgsmål</h2>
+              <div className="space-y-4">
                 {faqItems.map((item, index) => (
-                  <div key={index} className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <h4 className="text-xl font-semibold mb-2 flex items-center">
-                      <CheckCircle className="text-green-500 mr-2" size={24} />
-                      {item.question}
-                    </h4>
-                    <p className="text-gray-600">{item.answer}</p>
+                  <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                      className="w-full text-left p-4 focus:outline-none bg-white hover:bg-gray-50 transition-colors duration-200"
+                      onClick={() => toggleAccordion(index)}
+                    >
+                      <div className="flex justify-between items-center">
+                        <span className="text-lg font-semibold text-gray-700">{item.question}</span>
+                        {openIndex === index ? (
+                          <ChevronUp className="text-gray-500" size={24} />
+                        ) : (
+                          <ChevronDown className="text-gray-500" size={24} />
+                        )}
+                      </div>
+                    </button>
+                    <div
+                      className={`px-4 pt-0 overflow-hidden transition-all duration-300 ease-in-out ${
+                        openIndex === index ? 'max-h-96 pb-4' : 'max-h-0'
+                      }`}
+                    >
+                      <p className="text-gray-600">{item.answer}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -222,7 +243,7 @@ const LandingPage = () => {
             <div className="container mx-auto px-6 text-center">
               <h3 className="text-3xl font-semibold mb-4">Klar til at Komme i Gang?</h3>
               <p className="text-xl mb-8">Book et møde i dag for at lære, hvordan vi kan hjælpe din virksomhed med at udnytte kraften i AI.</p>
-              <a href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen" target="_blank" rel="noopener nore</section>ferrer" className="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold">Book et møde</a>
+              <a href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen" target="_blank" rel="noopener noreferrer" className="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold">Book et møde</a>
             </div>
           </section>
         </FadeInSection>

@@ -31,10 +31,27 @@ export const testimonials = [
   ];
   
 export const faqItems = [
-    { question: "Hvad er Syv.ai?", answer: "Syv.ai er et AI-bureau, der hjælper virksomheder med at implementere vellykkede AI-projekter gennem vores syv-trins metode." },
-    { question: "Hvordan fungerer onboarding-processen?", answer: "Vi starter med en konsultation for at forstå dine behov og guider dig derefter gennem vores syv trin, fra målsætning til implementering og evaluering." },
-    { question: "Kan Syv.ai arbejde med mine eksisterende systemer?", answer: "Ja, vi specialiserer os i at skabe skræddersyede AI-løsninger, der integreres problemfrit med din nuværende infrastruktur." }
-  ];
+  {
+    question: "Hvordan adskiller syv.ai sig fra andre AI-konsulentfirmaer?",
+    answer: "syv.ai er unik som både konsulenter og udviklere af avancerede AI-teknologier. Vi er det eneste konsulenthus i Danmark, der har trænet og udgivet large language models (LLMs). Vores dedikation til open source, hvor de fleste af vores modeller er frit tilgængelige, demonstrerer vores tekniske ekspertise og commitment til innovation i AI-fællesskabet."
+  },
+  {
+    question: "Hvilke typer virksomheder samarbejder syv.ai med?",
+    answer: "syv.ai samarbejder med en bred vifte af virksomheder, fra startups og etablerede mellemstore virksomheder til nogle af verdens største og mest indflydelsesrige virksomheder. Vores fleksible tilgang tillader os at tilpasse vores ydelser til hver enkelt klients unikke behov, uanset deres størrelse eller branche."
+  },
+  {
+    question: "Kan I give eksempler på konkrete AI-løsninger, I har implementeret?",
+    answer: "De fleste af vores projekter er underlagt fortrolighedserklæringer, men vores løsninger inkluderer implementering af avancerede chatbots, automatisering af backoffice opgaver, translation modeller, og optimering af supply chain gennem AI-drevne prognoser. Hver løsning er skræddersyet til klientens specifikke behov."
+  },
+  {
+    question: "Hvilke kompetencer har syv.ai's team?",
+    answer: "syv.ai's team består af AI-ingeniører med ekspertise i machine learning, deep learning og NLP, samt erfarne forretningsudviklere. Dette tværfaglige team sikrer, at vores leverancer er teknisk avancerede og succesfuldt implementeret i organisationen."
+  },
+  {
+    question: "Hvordan holder syv.ai sig opdateret med de nyeste AI-trends og teknologier?",
+    answer: "syv.ai er en frontrunner inden for AI-udvikling. Vi er aktivt involveret i at forme og drive udviklingen af de nyeste AI-teknologier gennem kontinuerlig forskning, deltagelse i konferencer, samarbejde med akademiske institutioner, og bidrag til open source AI-projekter. Vores arbejde med at udvikle og udgive egne large language models placerer os i frontlinjen af AI-innovation."
+  }
+];
   
 export const logos = [
     { name: 'Apple', src: '/images/apple.svg', type: 'svg' },
