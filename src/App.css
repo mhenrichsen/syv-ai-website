@@ -3,9 +3,7 @@
 .App {
   text-align: center;
 }
-body {
-  font-family: 'IBM Plex Mono', monospace;
-}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
