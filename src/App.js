@@ -49,7 +49,7 @@ const LandingPage = () => {
         {/* Background image */}
         <div className="absolute inset-8 bg-gray-800 rounded-3xl overflow-hidden">
           <img
-            src="/images/image.webp"
+            src="/images/new-header.jpg"
             alt="Background"
             className="w-full h-full object-cover opacity-50"
           />
@@ -112,7 +112,7 @@ const LandingPage = () => {
             <div className="container mx-auto px-6">
               <h3 className="text-3xl font-semibold text-center mb-12">Hvem er vi?</h3>
               <div className="flex flex-col md:flex-row items-center justify-between">
-                <div className="md:w-1/2 mb-8 md:mb-0">
+                <div className="md:w-1/2 mb-8 md:mb-0 px-4">
                   <p className="text-gray-600 mb-4">
                     Vi er et dynamisk konsulenthus baseret i hjertet af København. Som et lille, men ambitiøst team af tre dedikerede softwareudviklere, har vi specialiseret os i at bringe kunstig intelligens ind i danske virksomheders hverdag.
                   </p>
@@ -126,8 +126,8 @@ const LandingPage = () => {
                     Hos syv.ai tror vi på, at fremtiden tilhører de virksomheder, der formår at integrere AI på en meningsfuld måde. Lad os hjælpe din virksomhed med at tage det næste skridt ind i AI-æraen.
                   </p>
                 </div>
-                <div className="md:w-1/2">
-                  <img src="/images/danskgpt.png" alt="DanskGPT Interface" className="rounded-lg" />
+                <div className="md:w-1/2 px-4">
+                  <img src="/images/talking.jpg" alt="DanskGPT Interface" className="rounded-lg" />
                 </div>
               </div>
             </div>
