@@ -1,78 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart, Code, BookOpen, MessageSquare, CheckCircle } from 'lucide-react';
-
-const offerings = [
-  {
-    title: "Strategisk AI-rådgivning",
-    description: "Vi hjælper organisationer med at identificere og udnytte unikke AI-muligheder. Vores ekspertise omsætter komplekse udfordringer til skræddersyede, effektive AI-løsninger, der driver innovation og vækst.",
-    icon: BarChart
-  },
-  {
-    title: "Skræddersyet AI-udvikling",
-    description: "Fra startup til C25 - vi leverer skalerbare, enterprise-grade AI-løsninger. Vores track record inkluderer succesfulde implementeringer i virksomheder med op til 170.000 ansatte, hvilket sikrer robuste og pålidelige systemer uanset organisationens størrelse.",
-    icon: Code
-  },
-  {
-    title: "Vidensbaseret AI-implementering",
-    description: "Vi tror på, at succesfuld AI-adoption starter med uddannelse. Vores skræddersyede foredrag og hands-on kurser inden for Generativ AI giver jeres team den nødvendige indsigt og kompetence til at drive og vedligeholde banebrydende AI-projekter.",
-    icon: BookOpen
-  }
-];
-
-const danskGPTStats = [
-  { label: "API-kald", value: "+ 1.000.000" },
-  { label: "Oprettede samtaler", value: "+ 105.000" },
-  { label: "Data udenfor Danmark", value: "0" }
-];
-
-const testimonials = [
-  { name: "Jane Doe", company: "Tech Co", quote: "Syv.ai transformerede vores virksomhed med kraftfulde AI-løsninger." },
-  { name: "John Smith", company: "Data Corp", quote: "Ekspertisen og supporten fra Syv.ai er uovertruffen i branchen." }
-];
-
-const faqItems = [
-  { question: "Hvad er Syv.ai?", answer: "Syv.ai er et AI-bureau, der hjælper virksomheder med at implementere vellykkede AI-projekter gennem vores syv-trins metode." },
-  { question: "Hvordan fungerer onboarding-processen?", answer: "Vi starter med en konsultation for at forstå dine behov og guider dig derefter gennem vores syv trin, fra målsætning til implementering og evaluering." },
-  { question: "Kan Syv.ai arbejde med mine eksisterende systemer?", answer: "Ja, vi specialiserer os i at skabe skræddersyede AI-løsninger, der integreres problemfrit med din nuværende infrastruktur." }
-];
-
-const logos = [
-  { name: 'Apple', src: '/images/apple.svg', type: 'svg' },
-  { name: 'Siemens Energy', src: '/images/siemens.png' },
-  { name: 'Ramboll', src: '/images/ramboll.png' },
-  { name: 'Plan- og Landdistriksstyrelsen', src: '/images/plst.png' },
-  { name: 'Københavns Kommune', src: '/images/kk.png' },
-
-];
-
-const LogoImage = ({ logo }) => {
-  if (logo.type === 'svg') {
-    return (
-      <div className="w-40 h-20 flex items-center justify-center">
-        <img
-          src={logo.src}
-          alt={`${logo.name} logo`}
-          className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-          style={{ maxWidth: '160px', maxHeight: '80px' }} // Adjust these values as needed
-        />
-      </div>
-    );
-  } else {
-    return (
-      <div className="w-40 h-20 flex items-center justify-center">
-        <img
-          src={logo.src}
-          alt={`${logo.name} logo`}
-          className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-        />
-      </div>
-    );
-  }
-};
+import { BarChart, Code, BookOpen, MessageSquare, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import NavBar from './NavBar/NavBar';
+import {offerings, danskGPTStats, testimonials, faqItems, logos, LogoImage} from "./variables/constants";
 
 const FadeInSection = ({ children }) => {
   const [isVisible, setVisible] = useState(false);
   const domRef = React.useRef();
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -95,21 +29,18 @@ const FadeInSection = ({ children }) => {
 };
 
 const LandingPage = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
   return (
     <div className="min-h-screen bg-gray-100">
-      <header className="bg-white shadow-md fixed w-full z-10">
+      <header id='NavHeader' className="bg-white shadow-md fixed w-full z-50">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <h1 className="text-3xl font-bold text-blue-600">syv.ai</h1>
-          <nav>
-            <ul className="flex space-x-6">
-              <li><a href="#om" className="text-gray-600 hover:text-blue-600 transition duration-300">Om os</a></li>
-              <li><a href="#tjenester" className="text-gray-600 hover:text-blue-600 transition duration-300">Tjenester</a></li>
-              <li><a href="#danskgpt" className="text-gray-600 hover:text-blue-600 transition duration-300">DanskGPT</a></li>
-              <li><a href="#testimonials" className="text-gray-600 hover:text-blue-600 transition duration-300">Udtalelser</a></li>
-              <li><a href="#faq" className="text-gray-600 hover:text-blue-600 transition duration-300">FAQ</a></li>
-            </ul>
-          </nav>
-          <a href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">Book et møde</a>
+          <NavBar />
+          <a href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen" id="book_meeting" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">Book et møde</a>
         </div>
       </header>
 
@@ -118,7 +49,7 @@ const LandingPage = () => {
         {/* Background image */}
         <div className="absolute inset-8 bg-gray-800 rounded-3xl overflow-hidden">
           <img
-            src="/images/image.webp"
+            src="/images/new-header.jpg"
             alt="Background"
             className="w-full h-full object-cover opacity-50"
           />
@@ -138,7 +69,7 @@ const LandingPage = () => {
               Vi bygger løsninger, virksomheder elsker at bruge.
             </p>
             {/* Buttons */}
-            <div className="flex space-x-4 mt-8 ml-6">
+            <div className="bookAndLearnButtons flex space-x-4 mt-8 ml-6">
               <a
                 href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen"
                 target="_blank"
@@ -149,7 +80,7 @@ const LandingPage = () => {
               </a>
               <a
                 href="#om"
-                className="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold"
+                className="learnMore bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold"
               >
                 Lær mere
               </a>
@@ -181,7 +112,7 @@ const LandingPage = () => {
             <div className="container mx-auto px-6">
               <h3 className="text-3xl font-semibold text-center mb-12">Hvem er vi?</h3>
               <div className="flex flex-col md:flex-row items-center justify-between">
-                <div className="md:w-1/2 mb-8 md:mb-0">
+                <div className="md:w-1/2 mb-8 md:mb-0 px-4">
                   <p className="text-gray-600 mb-4">
                     Vi er et dynamisk konsulenthus baseret i hjertet af København. Som et lille, men ambitiøst team af tre dedikerede softwareudviklere, har vi specialiseret os i at bringe kunstig intelligens ind i danske virksomheders hverdag.
                   </p>
@@ -195,8 +126,8 @@ const LandingPage = () => {
                     Hos syv.ai tror vi på, at fremtiden tilhører de virksomheder, der formår at integrere AI på en meningsfuld måde. Lad os hjælpe din virksomhed med at tage det næste skridt ind i AI-æraen.
                   </p>
                 </div>
-                <div className="md:w-1/2">
-                  <img src="/images/danskgpt.png" alt="DanskGPT Interface" className="rounded-lg" />
+                <div className="md:w-1/2 px-4">
+                  <img src="/images/talking.jpg" alt="DanskGPT Interface" className="rounded-lg" />
                 </div>
               </div>
             </div>
@@ -207,7 +138,7 @@ const LandingPage = () => {
           <section id="tjenester" className="py-20 bg-gray-100">
             <div className="container mx-auto px-6">
               <h3 className="text-3xl font-semibold text-center mb-12">Det vi tilbyder</h3>
-              <div className="flex flex-row justify-between gap-8">
+              <div className="offerings flex flex-row justify-between gap-8">
                 {offerings.map((offering, index) => (
                   <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 w-1/3">
                     <offering.icon className="text-blue-500 mb-4" size={32} />
@@ -219,19 +150,26 @@ const LandingPage = () => {
             </div>
           </section>
         </FadeInSection>
-
+        
         <FadeInSection>
           <section id="danskgpt" className="py-20 bg-white">
             <div className="container mx-auto px-6">
               <h3 className="text-3xl font-semibold text-center mb-12">DanskGPT</h3>
-              <div className="flex flex-col md:flex-row items-center bg-gray-100 p-8 rounded-lg shadow-md">
-                <div className="md:w-1/2 mb-8 md:mb-0">
-                  <MessageSquare className="text-blue-500 mb-4" size={32} />
-                  <p className="mb-4">DanskGPT er vores specialudviklede sprogmodel, skræddersyet til det danske sprog. Denne innovative teknologi tilbyder enestående fordele:</p>
-                  <li className="list-disc list-inside mb-2">In-house drift sikrer fuld GDPR-compliance og maksimal datasikkerhed</li>
-                  <li className="list-disc list-inside mb-2">Overlegne resultater: Overgår ChatGPT-4o i fire ud af syv sprogopgaver, herunder grammatik og opsummering</li>
-                  <li className="list-disc list-inside mb-2">Specialiseret i dansk kontekst og kultur</li>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid flex-col md:flex-row items-center bg-gray-100 p-8 rounded-lg shadow-md">
+                <div className="danskGPTimg_and_text flex">
+                  <div className="md:w-1/2 mb-8 md:mb-0">
+                    <MessageSquare className="text-blue-500 mb-4" size={32} />
+                    <p className="mb-4">DanskGPT er vores specialudviklede sprogmodel, skræddersyet til det danske sprog. Denne innovative teknologi tilbyder enestående fordele:</p>
+                    <li className="list-disc list-inside mb-2">In-house drift sikrer fuld GDPR-compliance og maksimal datasikkerhed</li>
+                    <li className="list-disc list-inside mb-2">Overlegne resultater: Overgår ChatGPT-4o i fire ud af syv sprogopgaver, herunder grammatik og opsummering</li>
+                    <li className="list-disc list-inside mb-2">Specialiseret i dansk kontekst og kultur</li>
+
+                    </div>
+                  <div className="md:w-1/2">
+                    <img src="/images/danskgpt.png" alt="DanskGPT Interface" className="rounded-lg" />
+                  </div>
+                </div>
+                  <div className="danskGPTstats grid grid-cols-1 md:grid-cols-3 gap-4">
                     {danskGPTStats.map((stat, index) => (
                       <div key={index} className="text-center">
                         <p className="text-2xl font-bold text-blue-600">{stat.value}</p>
@@ -239,19 +177,16 @@ const LandingPage = () => {
                       </div>
                     ))}
                   </div>
-                </div>
-                <div className="md:w-1/2">
-                  <img src="/images/danskgpt.png" alt="DanskGPT Interface" className="rounded-lg" />
-                </div>
               </div>
             </div>
           </section>
         </FadeInSection>
 
+        {/*
         <FadeInSection>
           <section id="testimonials" className="py-20 bg-gray-100">
             <div className="container mx-auto px-6">
-              <h3 className="text-3xl font-semibold text-center mb-12">Hvad Vores Kunder Siger</h3>
+              <h3 className="text-3xl font-semibold text-center mb-12">Hvad vores kunder Siger</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {testimonials.map((testimonial, index) => (
                   <div key={index} className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
@@ -269,19 +204,35 @@ const LandingPage = () => {
             </div>
           </section>
         </FadeInSection>
+        */}
 
         <FadeInSection>
-          <section id="faq" className="py-20 bg-white">
-            <div className="container mx-auto px-6">
-              <h3 className="text-3xl font-semibold text-center mb-12">Ofte Stillede Spørgsmål</h3>
-              <div className="space-y-6">
+        <section id="faq" className="py-20 bg-gray-50">
+            <div className="container mx-auto px-4 md:px-6">
+              <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Ofte stillede spørgsmål</h2>
+              <div className="space-y-4">
                 {faqItems.map((item, index) => (
-                  <div key={index} className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <h4 className="text-xl font-semibold mb-2 flex items-center">
-                      <CheckCircle className="text-green-500 mr-2" size={24} />
-                      {item.question}
-                    </h4>
-                    <p className="text-gray-600">{item.answer}</p>
+                  <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                      className="w-full text-left p-4 focus:outline-none bg-white hover:bg-gray-50 transition-colors duration-200"
+                      onClick={() => toggleAccordion(index)}
+                    >
+                      <div className="flex justify-between items-center">
+                        <span className="text-lg font-semibold text-gray-700">{item.question}</span>
+                        {openIndex === index ? (
+                          <ChevronUp className="text-gray-500" size={24} />
+                        ) : (
+                          <ChevronDown className="text-gray-500" size={24} />
+                        )}
+                      </div>
+                    </button>
+                    <div
+                      className={`px-4 pt-0 overflow-hidden transition-all duration-300 ease-in-out ${
+                        openIndex === index ? 'max-h-96 pb-4' : 'max-h-0'
+                      }`}
+                    >
+                      <p className="text-gray-600">{item.answer}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -292,9 +243,9 @@ const LandingPage = () => {
         <FadeInSection>
           <section id="contact" className="py-20 bg-gradient-to-r from-blue-500 to-blue-700 text-white">
             <div className="container mx-auto px-6 text-center">
-              <h3 className="text-3xl font-semibold mb-4">Klar til at Komme i Gang?</h3>
-              <p className="text-xl mb-8">Book et møde i dag for at lære, hvordan vi kan hjælpe din virksomhed med at udnytte kraften i AI.</p>
-              <a href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen" target="_blank" rel="noopener nore</section>ferrer" className="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold">Book et møde</a>
+              <h3 className="text-3xl font-semibold mb-4">Klar til at komme i gang?</h3>
+              <p className="text-xl mb-8">Book et møde i dag for at lære, hvordan vi kan hjælpe din virksomhed med at udnytte AI.</p>
+              <a href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen" target="_blank" rel="noopener noreferrer" className="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold">Book et møde</a>
             </div>
           </section>
         </FadeInSection>

@@ -1,3 +1,5 @@
+/* Meget pæn font. Prøv den evt. @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap'); */
+
 .App {
   text-align: center;
 }
@@ -27,6 +29,103 @@
 .App-link {
   color: #61dafb;
 }
+
+.MobileNavigation{
+  display: none;
+}
+
+.NavLinks ul {
+  display: flex;
+}
+ 
+.NavLinks ul li {
+  margin-left: 30px;
+}
+
+@media (max-width: 768px) {
+
+  .DesktopNavigation {
+    display: none;
+  }
+
+  .MobileNavigation {
+    display: flex;
+    align-items: center;
+    height: 40px; /* Fixed height */
+    /*width: 200px;  Fixed width */
+    transition: clip-path 2s;
+  }
+
+  .NavLinksWrapper {
+    max-height: 0; /* Start with height 0 */
+    overflow: hidden; /* Hide overflow content */
+    transition: max-height 0.5s ease-out; /* Smooth transition for height */
+  }
+
+  .NavLinks ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 60px; /* Fixed position from top, adjust as needed */
+    right: 0;
+    height: 350px; /* Fixed height */
+    width: 100%; /* Fixed width */
+    background: white;
+    padding: 0; /* Reset padding */
+    margin: 0; /* Reset margin */
+    list-style: none; /* Remove default list style */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  .NavLinks ul li {
+    margin-left: 30px;
+  }
+  
+  .HamburgerMenu {
+    position: absolute;
+    right: 4%;
+    cursor: pointer;
+  }
+  
+  .head
+
+  .container h1 {
+    display: none;
+  }
+  
+  .container #book_meeting {
+    display: none;
+  }
+  
+  .offerings {
+    display: grid;
+  }
+  
+  .offerings div {
+    width: 100%;
+  }
+
+  .danskGPTimg_and_text {
+    display: grid;
+  }
+}
+
+@media (min-width: 765px) {
+  .NavLinks .bookMeeting{
+    display: None;
+}
+  
+}
+
+@media (max-width: 495px) {
+  .bookAndLearnButtons {
+    margin: 0;
+  }
+
+}
+
+
 
 @keyframes App-logo-spin {
   from {
