@@ -182,10 +182,11 @@ const LandingPage = () => {
           </section>
         </FadeInSection>
 
+        {/*
         <FadeInSection>
           <section id="testimonials" className="py-20 bg-gray-100">
             <div className="container mx-auto px-6">
-              <h3 className="text-3xl font-semibold text-center mb-12">Hvad Vores Kunder Siger</h3>
+              <h3 className="text-3xl font-semibold text-center mb-12">Hvad vores kunder Siger</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {testimonials.map((testimonial, index) => (
                   <div key={index} className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
@@ -203,11 +204,12 @@ const LandingPage = () => {
             </div>
           </section>
         </FadeInSection>
+        */}
 
         <FadeInSection>
         <section id="faq" className="py-20 bg-gray-50">
             <div className="container mx-auto px-4 md:px-6">
-              <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Ofte Stillede Spørgsmål</h2>
+              <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Ofte stillede spørgsmål</h2>
               <div className="space-y-4">
                 {faqItems.map((item, index) => (
                   <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
@@ -241,8 +243,8 @@ const LandingPage = () => {
         <FadeInSection>
           <section id="contact" className="py-20 bg-gradient-to-r from-blue-500 to-blue-700 text-white">
             <div className="container mx-auto px-6 text-center">
-              <h3 className="text-3xl font-semibold mb-4">Klar til at Komme i Gang?</h3>
-              <p className="text-xl mb-8">Book et møde i dag for at lære, hvordan vi kan hjælpe din virksomhed med at udnytte kraften i AI.</p>
+              <h3 className="text-3xl font-semibold mb-4">Klar til at komme i gang?</h3>
+              <p className="text-xl mb-8">Book et møde i dag for at lære, hvordan vi kan hjælpe din virksomhed med at udnytte AI.</p>
               <a href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen" target="_blank" rel="noopener noreferrer" className="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold">Book et møde</a>
             </div>
           </section>
