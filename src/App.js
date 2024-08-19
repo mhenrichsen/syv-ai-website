@@ -114,7 +114,7 @@ const LandingPage = () => {
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="md:w-1/2 mb-8 md:mb-0 px-4">
                   <p className="text-gray-600 mb-4">
-                    Vi er et dynamisk konsulenthus baseret i hjertet af København. Som et lille, men ambitiøst team af tre dedikerede softwareudviklere, har vi specialiseret os i at bringe kunstig intelligens ind i danske virksomheders hverdag.
+                    Vi er et konsulenthus baseret i hjertet af København. Som et lille, men ambitiøst team af tre dedikerede softwareudviklere, har vi specialiseret os i at bringe kunstig intelligens ind i danske virksomheders hverdag.
                   </p>
                   <p className="text-gray-600 mb-4">
                     Vi er stolte af at samarbejde med nogle af Danmarks og verdens førende virksomheder og organisationer. Vores klientliste spænder fra tech-giganter til energiselskaber og offentlige institutioner.

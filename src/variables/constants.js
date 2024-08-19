@@ -54,7 +54,7 @@ export const faqItems = [
 ];
   
 export const logos = [
-    { name: 'Apple', src: '/images/apple.svg', type: 'svg' },
+    // { name: 'Apple', src: '/images/apple.svg', type: 'svg' },
     { name: 'Siemens Energy', src: '/images/siemens.png' },
     { name: 'Ramboll', src: '/images/ramboll.png' },
     { name: 'Plan- og Landdistriksstyrelsen', src: '/images/plst.png' },
