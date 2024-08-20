@@ -13,9 +13,11 @@ const NavLinks = ({isClicked, closeMenu}) => {
           <li onClick={() => isClicked && closeMenu()}>
             <a href="#danskgpt" className="text-gray-600 hover:text-blue-600 transition duration-300">DanskGPT</a>
           </li>
+          {/*
           <li onClick={() => isClicked && closeMenu()}>
             <a href="#testimonials" className="text-gray-600 hover:text-blue-600 transition duration-300">Udtalelser</a>
           </li>
+          */}
           <li onClick={() => isClicked && closeMenu()}>
             <a href="#faq" className="text-gray-600 hover:text-blue-600 transition duration-300">FAQ</a>
           </li>
