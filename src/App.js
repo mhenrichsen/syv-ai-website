@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, , ChevronDown, ChevronUp } from 'lucide-react';
+import { MessageSquare, ChevronDown, ChevronUp } from 'lucide-react';
 import NavBar from './NavBar/NavBar';
 import {offerings, danskGPTStats, testimonials, faqItems, logos} from "./variables/constants";
 
