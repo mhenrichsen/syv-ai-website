@@ -25,6 +25,9 @@ const NavLinks = ({isClicked, closeMenu}) => {
             <a href="https://sikkerai.dk" className="text-gray-600 hover:text-blue-600 transition duration-300">SikkerAI</a>
           </li>
           <li onClick={() => isClicked && closeMenu()}>
+            <a href="https://sikkerai.dk" className="text-gray-600 hover:text-blue-600 transition duration-300">Prompt Guide</a>
+          </li>
+          <li onClick={() => isClicked && closeMenu()}>
             <a
                 href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen"
                 target="_blank"
