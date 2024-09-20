@@ -22,7 +22,7 @@ const NavLinks = ({isClicked, closeMenu}) => {
         </li>
         <li onClick={() => isClicked && closeMenu()}>
           <a
-            href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen"
+            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1yfaYI2PP09-3k22OQACAuDIu_3Wwtcw8_59yhaPd4GpRJufF3PTmncVmToiGlRzot_XV0sSrF"
             target="_blank"
             rel="noopener noreferrer"
             className="bookMeeting bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 text-lg font-semibold"

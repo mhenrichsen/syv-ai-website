@@ -91,7 +91,7 @@ const LandingPage = () => {
             {/* Buttons */}
             <div className="bookAndLearnButtons flex space-x-4 mt-8 ml-6">
               <a
-                href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen"
+                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1yfaYI2PP09-3k22OQACAuDIu_3Wwtcw8_59yhaPd4GpRJufF3PTmncVmToiGlRzot_XV0sSrF"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 text-lg font-semibold"
@@ -265,7 +265,7 @@ const LandingPage = () => {
             <div className="container mx-auto px-6 text-center">
               <h3 className="text-3xl font-semibold mb-4">Klar til at komme i gang?</h3>
               <p className="text-xl mb-8">Book et møde i dag for at lære, hvordan vi kan hjælpe din virksomhed med at udnytte AI.</p>
-              <a href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen" target="_blank" rel="noopener noreferrer" className="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold">Book et møde</a>
+              <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1yfaYI2PP09-3k22OQACAuDIu_3Wwtcw8_59yhaPd4GpRJufF3PTmncVmToiGlRzot_XV0sSrF" target="_blank" rel="noopener noreferrer" className="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold">Book et møde</a>
             </div>
           </section>
         </FadeInSection>

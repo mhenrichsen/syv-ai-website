@@ -9,7 +9,7 @@ const Header = () => {
         <Link to="/" className="text-3xl font-bold text-blue-600">syv.ai</Link>
         <NavBar />
         <a 
-          href="https://calendly.com/syv-ai/llm-generativ-ai-med-mads-henrichsen" 
+          href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1yfaYI2PP09-3k22OQACAuDIu_3Wwtcw8_59yhaPd4GpRJufF3PTmncVmToiGlRzot_XV0sSrF" 
           id="book_meeting" 
           target="_blank" 
           rel="noopener noreferrer" 
