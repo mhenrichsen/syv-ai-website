@@ -94,9 +94,20 @@ export default function Sidebar({ onToggle }: SidebarProps) {
             {isCollapsed ? <FiChevronRight size={24} /> : <FiChevronLeft size={24} />}
           </button>
         </div>
-        <nav className={`flex-grow p-4 overflow-y-auto scrollbar-hide ${
-          isCollapsed ? 'opacity-0 invisible' : 'opacity-100 visible'
-        }`}>
+        <nav 
+          className={`flex-grow p-4 overflow-y-auto ${
+            isCollapsed ? 'opacity-0 invisible' : 'opacity-100 visible'
+          }`}
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          }}
+        >
+          <style jsx>{`
+            nav::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
           {guideData?.sections.map((section) => (
             <div key={section.id} className="mb-6">
               <div 
