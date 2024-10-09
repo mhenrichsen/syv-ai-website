@@ -45,7 +45,7 @@ const processContent = (content: string, setModalImage: (src: string | null) => 
           <a
             key={index}
             href={`#${id}`}
-            className="text-black hover:text-blue-600 hover:underline transition-colors duration-200"
+            className="text-black underline hover:text-blue-600 transition-colors duration-200"
             onClick={(e) => {
               e.preventDefault();
               const element = document.getElementById(id);
@@ -210,7 +210,7 @@ const MarkdownComponents = {
   ol: (props: any) => <ol className="list-decimal list-inside mb-4" {...props} />,
   blockquote: (props: any) => <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-4" {...props} />,
   a: (props: any) => {
-    return <a className="text-black hover:text-blue-600 hover:underline transition-colors duration-200" {...props} />;
+    return <a className="text-black underline hover:text-blue-600 transition-colors duration-200" {...props} />;
   },
 }
 
