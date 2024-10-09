@@ -1,120 +1,137 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { MessageSquare, ChevronDown, ChevronUp } from 'lucide-react';
-import NavBar from './NavBar/NavBar';
-import {offerings, danskGPTStats, testimonials, faqItems, logos} from "./variables/constants";
+import { MessageSquare, ChevronDown, ChevronUp, LucideIcon } from 'lucide-react';
+import { offerings, danskGPTStats, faqItems, logos } from "./variables/constants";
 import Header from './Header';
 
-const FadeInSection = ({ children }) => {
-    const [isVisible, setVisible] = useState(false);
-    const domRef = useRef();
-    const observerRef = useRef(null);
-  
-    useEffect(() => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => setVisible(entry.isIntersecting));
-      });
-      
-      observerRef.current = observer;
-  
-      const currentElement = domRef.current;
-      if (currentElement) {
-        observer.observe(currentElement);
-      }
-  
-      return () => {
-        if (currentElement && observerRef.current) {
-          observerRef.current.unobserve(currentElement);
-        }
-      };
-    }, []);
-  
-    return (
-      <div
-        className={`transition-opacity duration-1000 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`}
-        ref={domRef}
-      >
-        {children}
-      </div>
-    );
-  };
-  
+interface FadeInSectionProps {
+  children: React.ReactNode;
+}
 
-const LandingPage = () => {
-    const [openIndex, setOpenIndex] = useState(null);
-    const location = useLocation();
-  
-    const toggleAccordion = (index) => {
-      setOpenIndex(openIndex === index ? null : index);
-    };
-  
-    useEffect(() => {
-      if (location.hash) {
-        const element = document.querySelector(location.hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else {
-        window.scrollTo(0, 0);
+const FadeInSection: React.FC<FadeInSectionProps> = ({ children }) => {
+  const [isVisible, setVisible] = useState(false);
+  const domRef = useRef<HTMLDivElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => setVisible(entry.isIntersecting));
+    });
+    
+    observerRef.current = observer;
+
+    const currentElement = domRef.current;
+    if (currentElement) {
+      observer.observe(currentElement);
+    }
+
+    return () => {
+      if (currentElement && observerRef.current) {
+        observerRef.current.unobserve(currentElement);
       }
-    }, [location]);
-  
+    };
+  }, []);
+
+  return (
+    <div
+      className={`transition-opacity duration-1000 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+      ref={domRef}
+    >
+      {children}
+    </div>
+  );
+};
+
+interface Offering {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Logo {
+  name: string;
+  src: string;
+}
+
+const LandingPage: React.FC = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const location = useLocation();
+
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-gray-100">
-        <Header />
+      <Header />
       <main className="pt-20 px-4 md:px-8">
-      <div className="relative min-h-1/2 w-full overflow-hidden p-8 bg-gray-100">
-        {/* Background image */}
-        <div className="absolute inset-8 bg-gray-800 rounded-3xl overflow-hidden">
-          <img
-            src="/images/new-header.jpg"
-            alt="Background"
-            className="w-full h-full object-cover opacity-50"
-          />
-        </div>
-        {/* Content container */}
-        <div className="relative z-10 h-full flex flex-col justify-between p-8 md:py-8">
-          {/* Main text */}
-          <div className="max-w-2xl mt-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 ml-6">
-              Vi er Danmarks mest nørderede AI-udviklere. Og det afspejler sig i vores resultater.
-            </h1>
+        <div className="relative min-h-1/2 w-full overflow-hidden p-8 bg-gray-100">
+          {/* Background image */}
+          <div className="absolute inset-8 bg-gray-800 rounded-3xl overflow-hidden">
+            <img
+              src="/images/new-header.jpg"
+              alt="Background"
+              className="w-full h-full object-cover opacity-50"
+            />
           </div>
-          {/* Smaller text and buttons */}
-          <div className="max-w-2xl mb-8">
-            <p className="text-xl text-white mb-4 ml-6 pt-32">
-              Vi bygger ikke kun AI-løsninger, der virker. <br />
-              Vi bygger løsninger, virksomheder elsker at bruge.
-            </p>
-            {/* Buttons */}
-            <div className="bookAndLearnButtons flex space-x-4 mt-8 ml-6">
-              <a
-                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1yfaYI2PP09-3k22OQACAuDIu_3Wwtcw8_59yhaPd4GpRJufF3PTmncVmToiGlRzot_XV0sSrF"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 text-lg font-semibold"
-              >
-                Book et møde
-              </a>
-              <a
-                href="#om"
-                className="learnMore bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold"
-              >
-                Lær mere
-              </a>
+          {/* Content container */}
+          <div className="relative z-10 h-full flex flex-col justify-between p-8 md:py-8">
+            {/* Main text */}
+            <div className="max-w-2xl mt-8">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 ml-6">
+                Vi er Danmarks mest nørderede AI-udviklere. Og det afspejler sig i vores resultater.
+              </h1>
+            </div>
+            {/* Smaller text and buttons */}
+            <div className="max-w-2xl mb-8">
+              <p className="text-xl text-white mb-4 ml-6 pt-32">
+                Vi bygger ikke kun AI-løsninger, der virker. <br />
+                Vi bygger løsninger, virksomheder elsker at bruge.
+              </p>
+              {/* Buttons */}
+              <div className="bookAndLearnButtons flex space-x-4 mt-8 ml-6">
+                <a
+                  href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1yfaYI2PP09-3k22OQACAuDIu_3Wwtcw8_59yhaPd4GpRJufF3PTmncVmToiGlRzot_XV0sSrF"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 text-lg font-semibold"
+                >
+                  Book et møde
+                </a>
+                <a
+                  href="#om"
+                  className="learnMore bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold"
+                >
+                  Lær mere
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
 
         <section className="bg-white py-12 border-b">
           <div className="container mx-auto px-6">
             <h3 className="text-2xl font-semibold text-center mb-8">Virksomheder der stoler på os</h3>
             <div className="flex flex-wrap justify-center items-center gap-8">
-              {logos.map((logo) => (
+              {logos.map((logo: Logo) => (
                 <div key={logo.name} className="w-40 h-20 flex items-center justify-center">
                   <img
                     src={logo.src}
@@ -159,7 +176,7 @@ const LandingPage = () => {
             <div className="container mx-auto px-6">
               <h3 className="text-3xl font-semibold text-center mb-12">Det vi tilbyder</h3>
               <div className="offerings flex flex-row justify-between gap-8">
-                {offerings.map((offering, index) => (
+                {offerings.map((offering: Offering, index: number) => (
                   <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 w-1/3">
                     <offering.icon className="text-blue-500 mb-4" size={32} />
                     <h4 className="text-xl font-semibold mb-2">{offering.title}</h4>
@@ -183,55 +200,30 @@ const LandingPage = () => {
                     <li className="list-disc list-inside mb-2">In-house drift sikrer fuld GDPR-compliance og maksimal datasikkerhed</li>
                     <li className="list-disc list-inside mb-2">Overlegne resultater: Overgår ChatGPT-4o i fire ud af syv sprogopgaver, herunder grammatik og opsummering</li>
                     <li className="list-disc list-inside mb-2">Specialiseret i dansk kontekst og kultur</li>
-
-                    </div>
+                  </div>
                   <div className="md:w-1/2">
                     <img src="/images/danskgpt.png" alt="DanskGPT Interface" className="rounded-lg" />
                   </div>
                 </div>
-                  <div className="danskGPTstats grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {danskGPTStats.map((stat, index) => (
-                      <div key={index} className="text-center">
-                        <p className="text-2xl font-bold text-blue-600">{stat.value}</p>
-                        <p className="text-gray-600">{stat.label}</p>
-                      </div>
-                    ))}
-                  </div>
-              </div>
-            </div>
-          </section>
-        </FadeInSection>
-
-        {/*
-        <FadeInSection>
-          <section id="testimonials" className="py-20 bg-gray-100">
-            <div className="container mx-auto px-6">
-              <h3 className="text-3xl font-semibold text-center mb-12">Hvad vores kunder Siger</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <p className="text-gray-600 mb-4 italic">"{testimonial.quote}"</p>
-                    <div className="flex items-center">
-                      <img src={`/api/placeholder/64/64`} alt={testimonial.name} className="rounded-full mr-4" />
-                      <div>
-                        <p className="font-semibold">{testimonial.name}</p>
-                        <p className="text-sm text-gray-500">{testimonial.company}</p>
-                      </div>
+                <div className="danskGPTstats grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {danskGPTStats.map((stat, index) => (
+                    <div key={index} className="text-center">
+                      <p className="text-2xl font-bold text-blue-600">{stat.value}</p>
+                      <p className="text-gray-600">{stat.label}</p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </section>
         </FadeInSection>
-        */}
 
         <FadeInSection>
-        <section id="faq" className="py-20 bg-gray-50">
+          <section id="faq" className="py-20 bg-gray-50">
             <div className="container mx-auto px-4 md:px-6">
               <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Ofte stillede spørgsmål</h2>
               <div className="space-y-4">
-                {faqItems.map((item, index) => (
+                {faqItems.map((item: FAQItem, index: number) => (
                   <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
                     <button
                       className="w-full text-left p-4 focus:outline-none bg-white hover:bg-gray-50 transition-colors duration-200"
@@ -276,8 +268,6 @@ const LandingPage = () => {
           <p>&copy; 2024 syv.ai. Alle rettigheder forbeholdes.</p>
         </div>
       </footer>
-
-
     </div>
   );
 };
