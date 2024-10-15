@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Sidebar from './Sidebar'
+import Header from '../Header'  // Update this import path if necessary
 import { promptGuideData, GuideData } from './PromptGuide'
 import ReactMarkdown from 'react-markdown'
 
@@ -218,27 +219,25 @@ export default function MainPage() {
   const [guideData, setGuideData] = useState<GuideData | null>(null)
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
   const [modalImage, setModalImage] = useState<string | null>(null)
+  const [headerHeight, setHeaderHeight] = useState(0)
+  const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setGuideData(promptGuideData)
   }, [])
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const id = window.location.hash.slice(1)
-      if (id) {
-        const element = document.getElementById(id)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
-        }
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        setHeaderHeight(headerRef.current.offsetHeight)
       }
     }
 
-    window.addEventListener('hashchange', handleHashChange)
-    handleHashChange() // Handle initial hash on page load
+    updateHeaderHeight()
+    window.addEventListener('resize', updateHeaderHeight)
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange)
+      window.removeEventListener('resize', updateHeaderHeight)
     }
   }, [])
 
@@ -248,7 +247,10 @@ export default function MainPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="pt-16"> {/* You may want to adjust or remove this padding */}
+      <div ref={headerRef}>
+        <Header />
+      </div>
+      <div style={{ paddingTop: `${headerHeight}px` }}>
         <Sidebar onToggle={handleSidebarToggle} />
         
         <main className={`transition-all duration-300 ease-in-out ${

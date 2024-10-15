@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { promptGuideData } from './PromptGuide'
 import { FiChevronLeft, FiChevronRight, FiChevronDown, FiChevronUp } from 'react-icons/fi'
 
@@ -24,7 +24,7 @@ interface GuideData {
 }
 
 interface SidebarProps {
-  onToggle: (collapsed: boolean) => void
+  onToggle: (collapsed: boolean) => void;
 }
 
 const COLLAPSIBLE_SECTIONS = ['mere-om-prompt-engineering', 'begynder', 'øvede', 'ekspert'];
@@ -34,6 +34,8 @@ export default function Sidebar({ onToggle }: SidebarProps) {
   const [guideData, setGuideData] = useState<GuideData | null>(null)
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({})
   const [openMethods, setOpenMethods] = useState<{ [key: string]: boolean }>({})
+  const [headerHeight, setHeaderHeight] = useState(0)
+  const sidebarRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     setGuideData(promptGuideData)
@@ -43,6 +45,22 @@ export default function Sidebar({ onToggle }: SidebarProps) {
       return acc;
     }, {} as { [key: string]: boolean });
     setOpenSections(initialOpenSections);
+  }, [])
+
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      const header = document.getElementById('NavHeader')
+      if (header) {
+        setHeaderHeight(header.offsetHeight)
+      }
+    }
+
+    updateHeaderHeight()
+    window.addEventListener('resize', updateHeaderHeight)
+
+    return () => {
+      window.removeEventListener('resize', updateHeaderHeight)
+    }
   }, [])
 
   const toggleSidebar = () => {
@@ -85,10 +103,17 @@ export default function Sidebar({ onToggle }: SidebarProps) {
   };
 
   return (
-    <aside className={`fixed top-0 left-0 h-screen bg-gray-100 text-gray-800 transition-all duration-300 ease-in-out ${
-      isCollapsed ? 'w-16' : 'w-72'
-    } border-r border-gray-200`}>
-      <div className="h-full flex flex-col">
+    <aside 
+      ref={sidebarRef}
+      className={`fixed left-0 bg-gray-100 text-gray-800 transition-all duration-300 ease-in-out ${
+        isCollapsed ? 'w-16' : 'w-72'
+      } border-r border-gray-200 overflow-hidden`}
+      style={{ 
+        height: `calc(100vh - ${headerHeight}px)`,
+        top: `${headerHeight}px`
+      }}
+    >
+      <div className="h-full flex flex-col overflow-y-auto">
         <div className="p-4 flex items-center justify-between">
           <h1 className={`text-xl font-bold text-gray-900 transition-opacity duration-300 ${
             isCollapsed ? 'opacity-0 w-0' : 'opacity-100 w-auto'
