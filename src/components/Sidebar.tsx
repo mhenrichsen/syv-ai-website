@@ -76,6 +76,14 @@ export default function Sidebar({ onToggle }: SidebarProps) {
     setOpenMethods(prev => ({ ...prev, [methodId]: !prev[methodId] }))
   }
 
+  const noScrollbarStyle = {
+    scrollbarWidth: 'none' as const,
+    msOverflowStyle: 'none' as const,
+    '&::-webkit-scrollbar': {
+      display: 'none'
+    }
+  };
+
   return (
     <aside className={`fixed top-0 left-0 h-screen bg-gray-100 text-gray-800 transition-all duration-300 ease-in-out ${
       isCollapsed ? 'w-16' : 'w-72'
@@ -94,9 +102,12 @@ export default function Sidebar({ onToggle }: SidebarProps) {
             {isCollapsed ? <FiChevronRight size={24} /> : <FiChevronLeft size={24} />}
           </button>
         </div>
-        <nav className={`flex-grow p-4 overflow-y-auto scrollbar-hide ${
-          isCollapsed ? 'opacity-0 invisible' : 'opacity-100 visible'
-        }`}>
+        <nav 
+          className={`flex-grow p-4 overflow-y-auto ${
+            isCollapsed ? 'opacity-0 invisible' : 'opacity-100 visible'
+          }`}
+          style={noScrollbarStyle}
+        >
           {guideData?.sections.map((section) => (
             <div key={section.id} className="mb-6">
               <div 
