@@ -219,26 +219,9 @@ export default function MainPage() {
   const [guideData, setGuideData] = useState<GuideData | null>(null)
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
   const [modalImage, setModalImage] = useState<string | null>(null)
-  const [headerHeight, setHeaderHeight] = useState(0)
-  const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setGuideData(promptGuideData)
-  }, [])
-
-  useEffect(() => {
-    const updateHeaderHeight = () => {
-      if (headerRef.current) {
-        setHeaderHeight(headerRef.current.offsetHeight)
-      }
-    }
-
-    updateHeaderHeight()
-    window.addEventListener('resize', updateHeaderHeight)
-
-    return () => {
-      window.removeEventListener('resize', updateHeaderHeight)
-    }
   }, [])
 
   const handleSidebarToggle = (collapsed: boolean) => {
@@ -247,73 +230,73 @@ export default function MainPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div ref={headerRef}>
-        <Header />
-      </div>
-      <div style={{ paddingTop: `${headerHeight}px` }}>
-        <Sidebar onToggle={handleSidebarToggle} />
-        
-        <main className={`transition-all duration-300 ease-in-out ${
-          isSidebarCollapsed ? 'ml-16' : 'ml-72'
-        }`}>
-          <div className="py-8 px-4 sm:px-8 max-w-3xl mx-auto">
-            {guideData && (
-              <>
-                <h1 className="mb-8 text-4xl font-bold text-gray-900">{guideData.title}</h1>
-                {guideData.sections.map((section) => (
-                  <div key={section.id} id={`section-${section.id}`} className="mb-12">
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                      <span className="mr-3 text-3xl">{section.icon}</span>
-                      {section.title}
-                    </h2>
-                    {section.content && (
-                      <div className="prose prose-gray max-w-none mb-6">
-                        {processContent(section.content, setModalImage)}
-                      </div>
-                    )}
-                    {section.methods && section.methods.length > 0 && (
-                      <div className="space-y-8">
-                        {section.methods.map((method) => (
-                          <section key={method.id} id={method.id} className="bg-white shadow-md rounded-lg p-6">
-                            <h3 className="text-2xl font-bold text-gray-800 mb-6">{method.title}</h3>
-                            <div className="prose prose-gray max-w-none mb-6">
-                              {processContent(method.content, setModalImage)}
-                            </div>
-                            {method.implementations && method.implementations.length > 0 && (
-                              <div className="space-y-6 mt-8">
-                                {method.implementations.map((impl) => (
-                                  <div key={impl.id} id={impl.id} className="bg-gray-50 rounded-lg p-4">
-                                    <h5 className="text-lg font-semibold text-gray-700 mb-3">{impl.title}</h5>
-                                    <div className="prose prose-gray max-w-none">
-                                      {processContent(impl.content, setModalImage)}
-                                    </div>
-                                  </div>
-                                ))}
+      <Header />
+      <div className="pt-16"> {/* This accounts for the fixed header */}
+        <div className="flex">
+          <Sidebar onToggle={handleSidebarToggle} />
+          
+          <main className={`transition-all duration-300 ease-in-out flex-grow overflow-y-auto ${
+            isSidebarCollapsed ? 'ml-16' : 'ml-72'
+          }`}>
+            <div className="pt-4 pb-8 px-4 sm:px-8 max-w-3xl mx-auto"> {/* Reduced top padding here */}
+              {guideData && (
+                <>
+                  <h1 className="mb-8 text-4xl font-bold text-gray-900">{guideData.title}</h1>
+                  {guideData.sections.map((section) => (
+                    <div key={section.id} id={`section-${section.id}`} className="mb-12">
+                      <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                        <span className="mr-3 text-3xl">{section.icon}</span>
+                        {section.title}
+                      </h2>
+                      {section.content && (
+                        <div className="prose prose-gray max-w-none mb-6">
+                          {processContent(section.content, setModalImage)}
+                        </div>
+                      )}
+                      {section.methods && section.methods.length > 0 && (
+                        <div className="space-y-8">
+                          {section.methods.map((method) => (
+                            <section key={method.id} id={method.id} className="bg-white shadow-md rounded-lg p-6">
+                              <h3 className="text-2xl font-bold text-gray-800 mb-6">{method.title}</h3>
+                              <div className="prose prose-gray max-w-none mb-6">
+                                {processContent(method.content, setModalImage)}
                               </div>
-                            )}
-                          </section>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </>
-            )}
-          </div>
-        </main>
-        {modalImage && (
-          <div 
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-            onClick={() => setModalImage(null)}
-          >
-            <img 
-              src={modalImage} 
-              alt="Full size image" 
-              className="max-w-full max-h-full object-contain"
-            />
-          </div>
-        )}
+                              {method.implementations && method.implementations.length > 0 && (
+                                <div className="space-y-6 mt-8">
+                                  {method.implementations.map((impl) => (
+                                    <div key={impl.id} id={impl.id} className="bg-gray-50 rounded-lg p-4">
+                                      <h5 className="text-lg font-semibold text-gray-700 mb-3">{impl.title}</h5>
+                                      <div className="prose prose-gray max-w-none">
+                                        {processContent(impl.content, setModalImage)}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                            </section>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </>
+              )}
+            </div>
+          </main>
+        </div>
       </div>
+      {modalImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          onClick={() => setModalImage(null)}
+        >
+          <img 
+            src={modalImage} 
+            alt="Full size image" 
+            className="max-w-full max-h-full object-contain"
+          />
+        </div>
+      )}
     </div>
   )
 }

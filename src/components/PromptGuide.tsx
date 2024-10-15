@@ -27,7 +27,7 @@ export interface GuideData {
 }
 
 export const promptGuideData: GuideData = {
-  title: "Prompting Guide",
+  title: "",
   sections: [
     {
       id: "oversigt",
