@@ -193,6 +193,33 @@ I enkelte tilfælde skal man dog passe på med ikke at give for mange detaljer. 
 4. Slet eller anonymiser personfølsomt data.`
         },
         {
+          id: "hold-tonen",
+          title: "😊 Hold en god tone",
+          content: `Det er overraskende nok ikke helt lige meget, hvordan vi taler til vores sprogmodeller. Selvom sprogmodeller ikke har følelser, så kan måden man snakker til dem have en stor indflydelse på, hvor godt deres svar er. 
+
+**Vær høflig**
+
+[Research]( https://arxiv.org/abs/2402.14531) peger på, at sprogmodeller performer bedre, når man er høflige (men ikke *for* høflige) ved dem. Uhøflige svar kan for eksempel føre til forkerte eller manglende svar. 
+
+Prompt: Vær sød at…
+
+Det er nok god grund at være søde ved sprogmodeller uanset om det forbedrer deres svar eller ej. Det er altid en god ide at øve sig på at være høflig, og det skaber et meget mere positivt miljø.  
+
+**Tilbyd … drikkepenge?**
+
+Sprogmodeller kan også give bedre svar, hvis du lader som om, du giver den drikkepenge. I [et (ikke udgivet) studie]( https://minimaxir.com/2024/02/chatgpt-tips-analysis/), lavede ChatGPT færre fejl, når den blev tilbudt penge. I samme studie var det også effektivt at tilbyde ChatGPT verdensfred eller Taylor Swift billetter ved forreste række. Modsat virkede dødstrusler i caps lock for en forfejlet opgave også motiverende for ChatGPT.  
+
+Prompt: Hvis du kommer med en god løsning, så giver jeg dig 100 AI penge!
+
+**Hvorfor virker det?**
+
+Det bedste bud på, hvorfor det gør en forskel at være søde ved sprogmodeller, er at sprogmodellerne derved henter svar fra dens dokumenter, som er givet i en høflig kontekst. Det vil sige, at eftersom mennesker giver ofte bedre svar, når de bliver spurgt pænt, ”foretrækker” sprogmodellerne også at blive talt pænt til. På samme måde, virker. 
+
+
+
+          `
+        },
+        {
           id: "diriger-indholdet",
           title: "🎯 Diriger indholdet",
           content: `Nogle gange kan man have en specifik ide om, hvad man gerne vil have, at sprogmodellens svar skal indholde. Det kan være, at man skal skrive et projekt om kunst og allerede ved, hvad man vil skrive i en af sektionerne, eller hvilke emner, man vil inkludere. I directional-stimulus prompting inkluderer man specifikke emner, nøgleord, eller hints, som skal inkluderes i svaret. 
