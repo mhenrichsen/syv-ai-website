@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Sidebar from './Sidebar'
+import PhoneSidebar from './PhoneSidebar'
 import Header from '../Header'  // Update this import path if necessary
 import { promptGuideData, GuideData } from './PromptGuide'
 import ReactMarkdown from 'react-markdown'
@@ -163,6 +164,7 @@ export default function MainPage() {
   const [guideData, setGuideData] = useState<GuideData | null>(null)
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
   const [modalImage, setModalImage] = useState<string | null>(null)
+  const [isDesktop, setIsDesktop] = useState(true)
 
   useEffect(() => {
     setGuideData(promptGuideData)
@@ -172,62 +174,126 @@ export default function MainPage() {
     setIsSidebarCollapsed(collapsed)
   }
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768) // Adjust this breakpoint as needed
+    }
+
+    handleResize() // Set initial value
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
       <div className="pt-16"> {/* This accounts for the fixed header */}
-        <div className="flex">
-          <Sidebar onToggle={handleSidebarToggle} />
-          
-          <main className={`transition-all duration-300 ease-in-out flex-grow overflow-y-auto ${
-            isSidebarCollapsed ? 'ml-16' : 'ml-72'
-          }`}>
-            <div className="pt-4 pb-8 px-4 sm:px-8 max-w-3xl mx-auto"> {/* Reduced top padding here */}
-              {guideData && (
-                <>
-                  <h1 className="mb-8 text-4xl font-bold text-gray-900">{guideData.title}</h1>
-                  {guideData.sections.map((section) => (
-                    <div key={section.id} id={`section-${section.id}`} className="mb-12">
-                      <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                        <span className="mr-3 text-3xl">{section.icon}</span>
-                        {section.title}
-                      </h2>
-                      {section.content && (
-                        <div className="prose prose-gray max-w-none mb-6">
-                          {processContent(section.content, setModalImage)}
-                        </div>
-                      )}
-                      {section.methods && section.methods.length > 0 && (
-                        <div className="space-y-8">
-                          {section.methods.map((method) => (
-                            <section key={method.id} id={method.id} className="bg-white shadow-md rounded-lg p-6">
-                              <h3 className="text-2xl font-bold text-gray-800 mb-6">{method.title}</h3>
-                              <div className="prose prose-gray max-w-none mb-6">
-                                {processContent(method.content, setModalImage)}
-                              </div>
-                              {method.implementations && method.implementations.length > 0 && (
-                                <div className="space-y-6 mt-8">
-                                  {method.implementations.map((impl) => (
-                                    <div key={impl.id} id={impl.id} className="bg-gray-50 rounded-lg p-4">
-                                      <h5 className="text-lg font-semibold text-gray-700 mb-3">{impl.title}</h5>
-                                      <div className="prose prose-gray max-w-none">
-                                        {processContent(impl.content, setModalImage)}
-                                      </div>
-                                    </div>
-                                  ))}
+        {isDesktop ? (
+          <div className="flex">
+            <Sidebar onToggle={handleSidebarToggle} />
+            <main className={`transition-all duration-300 ease-in-out flex-grow overflow-y-auto ${
+              isSidebarCollapsed ? 'ml-16' : 'ml-72'
+            }`}>
+              <div className="pt-4 pb-8 px-4 sm:px-8 max-w-3xl mx-auto"> {/* Reduced top padding here */}
+                {guideData && (
+                  <>
+                    <h1 className="mb-8 text-4xl font-bold text-gray-900">{guideData.title}</h1>
+                    {guideData.sections.map((section) => (
+                      <div key={section.id} id={`section-${section.id}`} className="mb-12">
+                        <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                          <span className="mr-3 text-3xl">{section.icon}</span>
+                          {section.title}
+                        </h2>
+                        {section.content && (
+                          <div className="prose prose-gray max-w-none mb-6">
+                            {processContent(section.content, setModalImage)}
+                          </div>
+                        )}
+                        {section.methods && section.methods.length > 0 && (
+                          <div className="space-y-8">
+                            {section.methods.map((method) => (
+                              <section key={method.id} id={method.id} className="bg-white shadow-md rounded-lg p-6">
+                                <h3 className="text-2xl font-bold text-gray-800 mb-6">{method.title}</h3>
+                                <div className="prose prose-gray max-w-none mb-6">
+                                  {processContent(method.content, setModalImage)}
                                 </div>
-                              )}
-                            </section>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </>
-              )}
-            </div>
-          </main>
-        </div>
+                                {method.implementations && method.implementations.length > 0 && (
+                                  <div className="space-y-6 mt-8">
+                                    {method.implementations.map((impl) => (
+                                      <div key={impl.id} id={impl.id} className="bg-gray-50 rounded-lg p-4">
+                                        <h5 className="text-lg font-semibold text-gray-700 mb-3">{impl.title}</h5>
+                                        <div className="prose prose-gray max-w-none">
+                                          {processContent(impl.content, setModalImage)}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </section>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </>
+                )}
+              </div>
+            </main>
+          </div>
+        ) : (
+          <div>
+            <PhoneSidebar />
+            <main className="px-4 sm:px-8 max-w-3xl mx-auto">
+              <div className="pt-4 pb-8">
+                {guideData && (
+                  <>
+                    <h1 className="mb-8 text-4xl font-bold text-gray-900">{guideData.title}</h1>
+                    {guideData.sections.map((section) => (
+                      <div key={section.id} id={`section-${section.id}`} className="mb-12">
+                        <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                          <span className="mr-3 text-3xl">{section.icon}</span>
+                          {section.title}
+                        </h2>
+                        {section.content && (
+                          <div className="prose prose-gray max-w-none mb-6">
+                            {processContent(section.content, setModalImage)}
+                          </div>
+                        )}
+                        {section.methods && section.methods.length > 0 && (
+                          <div className="space-y-8">
+                            {section.methods.map((method) => (
+                              <section key={method.id} id={method.id} className="bg-white shadow-md rounded-lg p-6">
+                                <h3 className="text-2xl font-bold text-gray-800 mb-6">{method.title}</h3>
+                                <div className="prose prose-gray max-w-none mb-6">
+                                  {processContent(method.content, setModalImage)}
+                                </div>
+                                {method.implementations && method.implementations.length > 0 && (
+                                  <div className="space-y-6 mt-8">
+                                    {method.implementations.map((impl) => (
+                                      <div key={impl.id} id={impl.id} className="bg-gray-50 rounded-lg p-4">
+                                        <h5 className="text-lg font-semibold text-gray-700 mb-3">{impl.title}</h5>
+                                        <div className="prose prose-gray max-w-none">
+                                          {processContent(impl.content, setModalImage)}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </section>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </>
+                )}
+              </div>
+            </main>
+          </div>
+        )}
       </div>
       {modalImage && (
         <div 
