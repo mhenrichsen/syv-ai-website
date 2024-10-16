@@ -97,7 +97,7 @@ const LandingPage: React.FC = () => {
             {/* Main text */}
             <div className="max-w-2xl mt-8">
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 ml-6">
-                Vi er Danmarks mest nørderede AI-udviklere. Og det afspejler sig i vores resultater.
+                Vi er Danmarks mest nørdede AI-udviklere. Og det afspejler sig i vores resultater.
               </h1>
             </div>
             {/* Smaller text and buttons */}
