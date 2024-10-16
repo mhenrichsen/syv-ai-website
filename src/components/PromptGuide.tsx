@@ -32,7 +32,7 @@ export const promptGuideData: GuideData = {
     {
       id: "oversigt",
       title: "Oversigt over guiden",
-      content: `Den her guide vil hjælpe dig med at få en bedre tilgang til, hvordan du kan bruge sprogmodeller såsom ChatGPT eller Claude på en mere effektiv måde ved at bruge “prompt engineering”.  En “prompt” er en instruktion eller en anmodning, der gives til en sprogmodel, for at få et ønsket svar eller en bestemt form for output. Alle prompts er ikke lige gode og relevansen eller kvaliteten af sprogmodellens svar kan variere meget baseret på prompten. Det kræver øvelse at lære at skrive den perfekte prompt \- derfor denne guide\!
+      content: `Den her guide vil hjælpe dig med at få en bedre tilgang til, hvordan du kan bruge sprogmodeller såsom ChatGPT eller Claude på en mere effektiv måde ved at bruge “prompt engineering.  En “prompt” er en instruktion eller en anmodning, der gives til en sprogmodel, for at få et ønsket svar eller en bestemt form for output. Alle prompts er ikke lige gode og relevansen eller kvaliteten af sprogmodellens svar kan variere meget baseret på prompten. Det kræver øvelse at lære at skrive den perfekte prompt \- derfor denne guide\!
 
 *Guiden er delt ind i tre sektioner: for begynder, øvede og eksperter.* 
 
@@ -42,7 +42,7 @@ I den **øvede sektion** introducerer vi user, system og assistant roller. Her d
 
 **Ekspert sektionen** introducerer endnu mere avancerede teknikker og gør brug af eksterne værktøjer for at optimere og udvide mulighederne ved prompt engineering. Flere af metoderne kræver kompetencer indenfor kodning. 
 
-Forneden er der en oversigt over alle metoder beskrevet i vores guide og hvad, de kan bruges til. Metoderne er farvekoordineret så gule metoder findes i begynder sektionen, brune i den øvede sektionen og grønne i ekspert sektionen.
+Forneden er der en oversigt over alle metoder beskrevet i vores guide og hvad, de kan bruges til. Metoderne er farvekoordineret så gule metoder findes i begynder sektionen, orange i den øvede sektionen og grønne i ekspert sektionen.
 
 (Tryk på billedet for at gøre det større)
 
@@ -60,11 +60,11 @@ Image: /Overview.png
         {
           id: "Hvad-er-prompt-engineering",
           title: "🤖 Hvad er prompt engineering?",
-          content: `Når du giver en sprogmodel en instruktion eller stiller den et spørgsmål, så “prompter” du den. I prompt engineering forsøger man at få mest muligt ud af modellen, det vil sige at få det bedste mulige svar.
+          content: `Når du giver en sprogmodel en instruktion eller stiller den et spørgsmål, så “prompter” du den. I prompt engineering forsøger man at få mest muligt ud af modellen. Du prøver altså at få det bedste mulige svar.
 `},
         {id: "typer-prompt-engineering-opgaver",
           title: "🔧 Hvad kan man bruge prompt engineering til?",
-          content: `Man kan bruge sprogmodeller til næsten alle opgaver, som man kan tænke sig til, og som man kan beskrive til sprogmodellen. De fleste opgaver falder under de følgende kategorier:
+          content: `Man kan bruge sprogmodeller til næsten alle opgaver, som man kan tænke sig til, og som man kan beskrive for sprogmodellen. De fleste opgaver falder under de følgende kategorier:
 
 - ✍️ Tekstforfatning  
 - 🌍 Oversættelse  
@@ -75,14 +75,14 @@ Image: /Overview.png
 - 📖 Undervisning  
 - ⚙️ Automatisering
 
-Sprogmodeller er mindre gode til opgaver, som kræver svær matematik eller kompleks logik, men de gør gerne et forsøg alligevel. Nogle af metoderne i denne guide, som [[Least-to-Most Prompting]] og [[Implementer kode i din prompt]], kan gøre modellerne bedre til den slags opgaver. Sprogmodeller kan også ofte lave fejl eller “hallucinere”, hvilket vil sige, at de “finder på” viden. Derfor skal man altid dobbelt tjekke vigtige informationer. 
+Sprogmodeller er mindre gode til opgaver, som kræver svær matematik eller kompleks logik, men de gør gerne et forsøg alligevel. Nogle af metoderne i denne guide, som [[Least-to-Most Prompting]] og [[Implementer kode i din prompt]], kan gøre modellerne bedre til den slags opgaver. Sprogmodeller kan ofte lave fejl eller “hallucinere”, hvilket vil sige, at de “finder på” viden. Derfor skal man altid dobbelt tjekke vigtige informationer. 
         
           `},
         {id: "forskellen-prompt-engineering-programmering",
           title: "⚙️ Prompt engineering vs. programmering",
           content: `Man kan løse nogle af de samme opgaver med prompt engineering, som man kan med traditionel programmering. Det kan for eksempel være at automatisere opgaver eller sortere tekster. I traditionel programmering skal man nogle gange skrive meget lang og kompliceret kode. I prompt engineering ville man i stedet for give sprogmodellen en instruks i form af ren tekst. 
 
-Nogle er bange for, at prompt engineering er for teknisk, og at de slet ikke vil kunne finde ud af det. Prompt engineering handler i dens enkleste form om, at skrive gode beskeder til og med sprogmodeller. At give en god instruktion til en sprogmodel er meget ens med at give en god instruktion til en praktikant eller kollega. Der er i teorien ikke noget teknisk over det, selvom man sagtens *kan* inkludere for eksempel programmering til meget specifikke opgaver. I ekspert sektionen kræves der viden om programmering, men ellers er de fleste metoder lette at implementere med enhver baggrund. 
+Nogle er bange for, at prompt engineering er for teknisk, og at de slet ikke vil kunne finde ud af det. Prompt engineering handler i dens enkleste form om at skrive gode beskeder til og med sprogmodeller. At give en god instruktion til en sprogmodel er meget ens med at give en god instruktion til en praktikant eller kollega. Der er i teorien ikke noget teknisk over det, selvom man sagtens *kan* inkludere for eksempel programmering til meget specifikke opgaver. I ekspert sektionen kræves der viden om programmering, men ellers er de fleste metoder lette at implementere med enhver baggrund. 
           
           `},
         {id: "hvem-bruger-prompt-engineering",
@@ -93,10 +93,10 @@ Nogle er bange for, at prompt engineering er for teknisk, og at de slet ikke vil
 En student, som bruger en sprogmodel til at forstå undervisningsmateriale. Studenten uploader tekster og beder sprogmodellen om at opsummere og forklare svære koncepter. Studenten og sprogmodellen sparer omkring ideer til opgaver og hvad, studenten kan inkludere.
 
 📝💡
-En copywriter, som får hjælp af sprogmodeller til at generere tekst. Copywriteren og sprogmodellen diskuterer hvilke ord, der er mere effektive, og brainstormer titler. Sprogmodellen hjælper med at rette grammatik og foreslå forbedringer til tekster.
+En copywriter, som får hjælp af sprogmodeller til at generere tekst. Copywriteren og sprogmodellen diskuterer hvilke ord, der er mere effektive, og brainstormer titler. Sprogmodellen hjælper med at rette grammatik og foreslår forbedringer til tekster.
 
 💬🤖
-En programmør, som har lavet en RAG chatbot til et firma og skal  give chatbotten instruktioner for, hvordan den skal håndtere bruger forespørgsler og formatere dens spørgsmål. Programmøren fortæller for eksempel chatbotten, at den skal svare kort og formatere det i Markdown format.
+En programmør, som har lavet en RAG chatbot til et firma og skal  give chatbotten instruktioner for, hvordan den skal håndtere bruger forespørgsler og formatere dens svar. Programmøren fortæller for eksempel chatbotten, at den skal svare kort og formatere det i Markdown format.
 
             `},
             {id: "problemer-med-sprogmodeller",
@@ -104,20 +104,20 @@ En programmør, som har lavet en RAG chatbot til et firma og skal  give chatbott
               content: `Sprogmodeller er kommet meget langt i deres udvikling, men de er stadig ikke perfekte. Derfor er det vigtigt, at man er opmærksom på de problemer, der kan være.
 
 ❗️ **Fejl og Hallucinationer**
-De kan for eksempel lave fejl, både i form af “hallucinationer”, som er når de genererer forkerte informationer. De kan også lave fejl i deres analyser, såsom i matematik opgaver. Det er et stort problem, hvis man ikke kan regne med svarene, og derfor handler mange af metoderne i guiden om at minimere fejl. Hvis muligt, skal man også tjekke sprogmodellen svar og de informationer, den giver, især hvis det er vigtige oplysninger. 
+De kan for eksempel lave fejl, for eksempel i form af “hallucinationer”, som er når de genererer forkerte informationer. De kan også lave fejl i deres analyser, såsom i matematik opgaver. Det er et stort problem, hvis man ikke kan regne med svarene, og derfor handler mange af metoderne i guiden om at minimere fejl. Hvis muligt, skal man også tjekke sprogmodellen svar og de informationer, den giver, især hvis det er vigtige oplysninger. 
 
 ⚖️**Bias og Stereotyper**
 Et andet problem er, at de kan have problematiske biaser og stereotyper. Sprogmodeller er trænet på rigtig meget data, som ikke er blevet finkæmmet. Når der kan findes seksisme, racisme, homofobi, og så videre i træningsdataet, kan det også ske, at sprogmodellen kan generere det. Der har for eksempel været sager, hvor sprogmodeller har været brugt til at hjælpe med at vælge kandidater til ansættelse, og hvor gode kandidater er blevet sorteret fra grundet biaser. 
 
 🔒**Sikkerhed**
-Endnu et problem er, at sprogmodeller ikke er sikre i forhold til sensitiv data. Sprogmodeller kan nemlig frit bruge ens prompts til videre at træne sig selv. Det vil sige, at hvis man uploader en masse sensitiv data, så kender sprogmodellen nu den data, og kan eventuelt frit give det videre til andre brugere. Man skal derfor passe på med, hvad man fortæller den. 
+Endnu et problem er, at sprogmodeller ikke er sikre i forhold til sensitiv data. Sprogmodeller kan nemlig frit bruge ens prompts til videre at træne sig selv. Det vil sige, at hvis man uploader en masse sensitiv data, så kender sprogmodellen nu den data og kan frit give det videre til andre brugere. Man skal derfor passe på med, hvad man fortæller den. 
 
               `},
               {id: "gode-prompts",
                 title: "🌟 Er mine prompts gode?",
                 content: `En prompt er generelt god, hvis du får et godt svar, men det kan nogle gange være svært at vurdere. 
 
-Det er godt at starte med at finde ud af, om det er korrekt. Sprogmodeller laver sommetider fejl, og de er tit dårlige til at indrømme det. Derfor skal man altid, hvis det er muligt, tjekke vigtige informationer. I nogle metoder, såsom [[Giv reference tekster]], kan man bede modellen om at give citater, som man selv manuelt kan tjekke. Online sprogmodeller kan dog ikke give citater.  
+Det er godt at starte med at finde ud af, om svaret er korrekt. Sprogmodeller laver sommetider fejl, og de er dårlige til at indrømme det. Derfor skal man altid, hvis det er muligt, tjekke vigtige informationer. I nogle metoder, såsom [[Giv reference tekster]], kan man bede modellen om at give citater, som man selv manuelt kan tjekke. Online sprogmodeller kan dog ikke give citater.  
 
 Dernæst kan man prøve at eksperimentere med flere prompts og selv bestemme hvilke svar, man synes er bedst. Hvis man synes et svar er bedre end et andet, kan man også fortælle sprogmodellen det, og så kan den måske bruge den feedback til at lave et endnu bedre svar. Hvis man har programmeret et produkt til brug af andre, så kan man eventuelt indhente feedback fra brugerne. Endelig kan man bruge nogle af metoderne i [[Lav systematiske ændringer og test det]].
 
@@ -127,7 +127,7 @@ Dernæst kan man prøve at eksperimentere med flere prompts og selv bestemme hvi
                 content: `Mistænkeligt nok insisterer de fleste studier på, at deres prompt engineering metode er den bedste. Hvis man søger online på, hvilken metode er den bedste, er der mange, der priser [[Chain of Thought]]. Det er dog svært at svare på, hvilken der er bedst eller endda hvilken en, man skal bruge. Man skal for eksempel overveje:
 
 **Hvor meget regnekraft og tid har jeg?** 
-Nogle af metoderne er meget mere krævende, både for prompteren og sprogmodellen. Hvis du ikke har meget tid eller penge til at bruge på tokens, kan det godt være, det ikke er de metoder, du skal vælge  
+Nogle af metoderne er meget krævende, både for prompteren og sprogmodellen. Hvis du ikke har meget tid eller penge til at bruge på tokens, kan det godt være, det ikke er de metoder, du skal vælge.  
 
 **Hvor vigtigt er det, at resultatet er det bedst, det kan være?** 
 Det kan være, du har rigeligt med tid og penge, men hvis du bare skal vide, hvordan man installerer Python, så er det nok ikke ekspert metoderne, man er ude i. Nogle af metoderne kræver også meget implementering for en lille forbedring i output.   
@@ -135,7 +135,7 @@ Det kan være, du har rigeligt med tid og penge, men hvis du bare skal vide, hvo
 **Hvilken opgave er det?** 
 Vi har så godt som muligt prøvet at forklare, hvad metoderne bruges til. Nogle kan bruges til, hvis man har et specifikt format i tankerne, mens andre mindsker fejl, og igen nogle tilføjer funktionalitet til sprogmodellen. Hvad har du brug for?
 
-Når du har fundet ud af, hvad du skal bruge sprogmodellen til, så er det bare med at eksperimentere. Nogle metoder virker også mere intuitive for nogle end for andre. Hvilken virker bedst for dig?
+Når du har fundet ud af, hvad du skal bruge sprogmodellen til, så er det bare med at eksperimentere. Nogle metoder virker også mere intuitive for nogle end for andre. Prøv at finde ud af, hvilke metoder, der virker bedst for dig.
 
                 `},
                 {id: "forbedring-af-prompts",
@@ -183,7 +183,7 @@ Prompt: Anbefal en god bog → Kan du anbefale en god science fiction bog om kun
 
 Prompt: Hvad er hovedstaden? → Hvad er hovedstaden i Danmark?
 
-I enkelte tilfælde skal man dog passe på med ikke at give for mange detaljer. Du bør for eksempel aldrig give sprogmodeller personfølsomt data til sprogmodeller, medmindre det er en sprogmodel, som er lavet til at håndtere det, og som du ved, at du kan stole på. Alt, der indgår i en prompt, kan nemlig indgå som træningsdata i modellen. 
+I enkelte tilfælde skal man dog passe på med ikke at give for mange detaljer. Du bør for eksempel ikke give personfølsomt data til sprogmodeller, medmindre det er en sprogmodel, som er lavet til at håndtere det, og som du ved, at du kan stole på. Alt der indgår i en prompt kan nemlig indgå som træningsdata i modellen. 
 
 ### Tips til at identificere relevante detaljer:
 
@@ -201,9 +201,11 @@ I enkelte tilfælde skal man dog passe på med ikke at give for mange detaljer. 
 
 [Research]( https://arxiv.org/abs/2402.14531) peger på, at sprogmodeller performer bedre, når man er høflige (men ikke *for* høflige) ved dem. Uhøflige svar kan for eksempel føre til forkerte eller manglende svar. 
 
+Man kan for eksempel starte sin prompt med:
+
 Prompt: Vær sød at…
 
-Det er nok god grund at være søde ved sprogmodeller uanset om det forbedrer deres svar eller ej. Det er altid en god ide at øve sig på at være høflig, og det skaber et meget mere positivt miljø.  
+Det er nok god grund at være søde ved sprogmodeller, uanset om det forbedrer deres svar eller ej. Det er altid en god ide at øve sig på at være høflig, og det skaber et meget mere positivt miljø.  
 
 **Tilbyd … drikkepenge?**
 
@@ -213,7 +215,7 @@ Prompt: Hvis du kommer med en god løsning, så giver jeg dig 100 AI penge!
 
 **Hvorfor virker det?**
 
-Det bedste bud på, hvorfor det gør en forskel at være søde ved sprogmodeller, er at sprogmodellerne derved henter svar fra dens dokumenter, som er givet i en høflig kontekst. Det vil sige, at eftersom mennesker giver ofte bedre svar, når de bliver spurgt pænt, ”foretrækker” sprogmodellerne også at blive talt pænt til. På samme måde, virker. 
+Det bedste bud på, hvorfor det gør en forskel at være søde ved sprogmodeller, er at sprogmodellerne derved henter svar fra dens dokumenter, som er givet i en høflig kontekst. Det vil sige, at eftersom mennesker ofte giver bedre svar, når de bliver spurgt pænt, ”foretrækker” sprogmodellerne også at blive talt pænt til. 
 
 
 
@@ -222,29 +224,29 @@ Det bedste bud på, hvorfor det gør en forskel at være søde ved sprogmodeller
         {
           id: "diriger-indholdet",
           title: "🎯 Diriger indholdet",
-          content: `Nogle gange kan man have en specifik ide om, hvad man gerne vil have, at sprogmodellens svar skal indholde. Det kan være, at man skal skrive et projekt om kunst og allerede ved, hvad man vil skrive i en af sektionerne, eller hvilke emner, man vil inkludere. I directional-stimulus prompting inkluderer man specifikke emner, nøgleord, eller hints, som skal inkluderes i svaret. 
+          content: `Nogle gange kan man have en specifik ide om, hvad man gerne vil have, at sprogmodellens svar skal indholde. Det kan være, at man skal skrive et projekt om kunst og allerede ved, hvad man vil skrive i en af sektionerne, eller hvilke emner, man vil inkludere. I **directional-stimulus prompting** inkluderer man specifikke emner, nøgleord, eller hints, som skal inkluderes i svaret. 
 
 Prompt:	Vær sød at skrive en produktbeskrivelse for en trøje. Du skal nævne, at den er strikket af mohair uld. Brug ordene “lækker” og “varm” i din beskrivelse. 
 
-Hvis du vil læse mere om directional-stimulus prompting, kan du for eksempel læse den originale artikel [her](https://arxiv.org/abs/2302.11520). I den originale artikel kan metoden også bruges til at forbedre sprogmodellens svar ved at generere gode hints fra en mindre sprogmodel, som kun er trænet til at give gode hints.  `
+Hvis du vil læse mere om directional-stimulus prompting, kan du for eksempel læse den originale artikel [her](https://arxiv.org/abs/2302.11520). I den originale artikel kan metoden også bruges til at forbedre sprogmodellens svar ved at generere gode hints fra en mindre sprogmodel, som specifikt er trænet til at give gode hints.  `
         },
         {
           id: "specificer-en-laengde",
           title: "📏 Specificer en længde",
-          content: `Du kan selv specificere længden overfor sprogmodellen. Det kan for eksempel være en specifik mængde ord, sætninger, afsnit, eller pointer.
+          content: `Du kan selv specificere længden overfor sprogmodellen. Det kan for eksempel være en specifik mængde ord, sætninger, afsnit eller pointer.
 
 Når du specificerer længden i dine prompts, giver det større kontrol over sprogmodellens output. Dette kan være nyttigt når:
 
 1. Du har begrænsninger på plads eller tid  
 2. Du ønsker at sikre, at svaret er tilstrækkeligt detaljeret  
 3. Du vil have et hurtigt overblik eller en dybdegående analyse  
-4. Du skal tilpasse indholdet til specifikke formater (f.eks. sociale medier posts, artikler)
+4. Du skal tilpasse indholdet til specifikke formater (f.eks. sociale medier posts eller artikler)
 
 Det er vigtigt at huske, at sprogmodeller ikke kan tælle eller lave præcis matematik. Derfor er de sjældent 100% nøjagtige med især mængden af ord. Dog kan de give et rimeligt estimat.
 
 ### **Metoder til at specificere længde**
 
-Du kan specificere længde på flere måder:
+Du kan specificere længden på flere måder:
 
 1. Antal ord  
 2. Antal sætninger  
@@ -286,10 +288,9 @@ Prompt: Lav en præsentation om solsystemet med følgende struktur:
 
 ### **Tips til effektiv længdespecificering**
 1. Vær så præcis som muligt i dine længdeangivelser  
-2. Overvej at give et interval (f.eks. 90-110 ord) i stedet for et eksakt tal  
-3. Kombiner længde specifikationer med format specifikationer for mere præcise resultater  
-4. Vær opmærksom på, at meget stramme længde begrænsninger kan påvirke kvaliteten eller fuldstændigheden af information  
-5. Brug længdespecifikationer sammen med andre prompt-teknikker for optimal kontrol over outputtet`
+2. Overvej at give et interval (f.eks. 90-110 ord) i stedet for et eksakt tal. Meget stramme længde begrænsninger kan påvirke kvaliteten eller fuldstændigheden af information   
+3. Kombiner længde specifikationer med format specifikationer og andre prompt-teknikker for mere præcise resultater  
+`
         },
         {
           id: "specificer-formatet",
@@ -389,7 +390,7 @@ Prompt: Lav et simpelt budgetskema for en studerende. Inkluder kategorier for in
 1. Vær så specifik som muligt om det ønskede format  
 2. Overvej at give et kort eksempel på formatet, hvis det er komplekst  
 3. Brug formateringssymboler i selve prompten for at demonstrere ønsket output  
-4. Tænk på slutbrugerens behov og hvordan de bedst vil kunne anvende informationen  
+4. Tænk på dit behov, og hvordan du bedst vil kunne anvende informationen  
 5. Eksperimenter med forskellige formater for den samme information for at se, hvad der fungerer bedst`
         },
         {
@@ -399,10 +400,10 @@ Prompt: Lav et simpelt budgetskema for en studerende. Inkluder kategorier for in
 
 ### **Hvorfor er tone vigtig?**
 
-1. Tilpasning til målgruppen: Forskellige målgrupper reagerer bedre på forskellige toner.  
-2. Kontekst-matching: Tonen bør passe til situationen eller mediet (f.eks. formel for en forretningsrapport, casual for en blog).  
-3. Branding: Konsistent tone kan hjælpe med at opretholde en bestemt brand-identitet.  
-4. Emotionel påvirkning: Den rigtige tone kan fremkalde specifikke følelser hos læseren.
+1. *Tilpasning til målgruppen*: Forskellige målgrupper reagerer bedre på forskellige toner.  
+2. *Kontekst-matching*: Tonen bør passe til situationen eller mediet (f.eks. formel for en forretningsrapport, casual for en blog).  
+3. *Branding*: en sammenhængende tone kan hjælpe med at opretholde en bestemt brand-identitet.  
+4. *Emotionel påvirkning*: Den rigtige tone kan fremkalde specifikke følelser hos læseren.
 
 ### **Eksempler:**
 
@@ -428,22 +429,22 @@ Prompt:	Skriv en tale til dimittender. Brug en inspirerende og opmuntrende tone,
 
 ### **Tips til at arbejde med tone:**
 
-1. Vær specifik: Jo mere præcist du beskriver den ønskede tone, desto bedre resultat får du.  
-2. Giv eksempler: Hvis muligt, giv et kort eksempel på den tone, du ønsker.  
-3. Kombiner toner: Du kan kombinere forskellige toner for at opnå en mere nuanceret effekt (f.eks. "professionel, men venlig").  
-4. Tilpas til kontekst: Husk at tone bør passe til emnet, målgruppen og mediet.  
-5. Eksperimenter: Prøv forskellige toner for det samme indhold og se, hvordan det påvirker resultatet.
+1. *Vær specifik*: Jo mere præcist du beskriver den ønskede tone, desto bedre resultat får du.  
+2. *Giv eksempler*: Hvis muligt, giv et kort eksempel på den tone, du ønsker.  
+3. *Kombiner toner*: Du kan kombinere forskellige toner for at opnå en mere nuanceret effekt (f.eks. "professionel, men venlig").  
+4. *Tilpas til kontekst*: Husk at tone bør passe til emnet, målgruppen og mediet.  
+5. *Eksperimenter*: Prøv forskellige toner for det samme indhold og se, hvordan det påvirker resultatet.
 
 Ved at mestre brugen af tone i dine prompts kan du opnå mere præcise og effektive resultater fra sprogmodellen, tilpasset til dine specifikke kommunikationsbehov.`
         },
         {
           id: "giv-eksempler",
           title: "💡 Giv eksempler - eller ikke",
-          content: `I prompt engineering snakker man om **zero-shot**, **one-shot** og **few-shots** prompting. I zero-shot giver man ikke sprogmodellen nogle eksempler, i one-shot giver man et, og i few-shots giver man flere. 
+          content: `I prompt engineering snakker man om **zero-shot**, **one-shot** og **few-shot** prompting. I zero-shot giver man ikke sprogmodellen nogle eksempler, i one-shot giver man et, og i few-shots giver man flere. 
 
 Det er næsten altid bedre at give modellen gode eksempler, hvis man har nogle, men i få tilfælde kan det virke modsat. For eksempel i kreative opgaver, hvor man gerne vil have at sprogmodellen genererer unikt indhold, så kan den blive for fokuseret på, at den skal følge eksemplerne, og derfor kan zero-shot prompting være bedre.
 
-At give eksempler i dine prompts kan dog dramatisk forbedre kvaliteten og præcisionen af sprogmodellens output. Det er ofte lettere at vise sprogmodellen, hvad du ønsker, frem for at beskrive det. Eksempler er særligt nyttige når:
+At give eksempler i dine prompts kan dramatisk forbedre kvaliteten og præcisionen af sprogmodellens output. Det er ofte lettere at vise sprogmodellen, hvad du ønsker, frem for at beskrive det. Eksempler er særligt nyttige når:
 
 1. Du ønsker en specifik skrivestil eller format  
 2. Du har brug for et bestemt struktureret output  
@@ -464,11 +465,11 @@ Hovedændringer: Erstat cream cheese med græsk yoghurt, brug havre i stedet for
 **2\. Før-og-efter eksempler**
 
 Prompt: Omskriv følgende tekniske forklaringer til noget, et barn kan forstå.  
-Teknisk: 'Fotosyntese er processen, hvorved planter omdanner lysenergi til kemisk energi, som lagres i glukose eller andre sukkermolekyler.'   
+Teknisk: 'Fotosyntese er en process, hvorved planter omdanner lysenergi til kemisk energi, som lagres i glukose eller andre sukkermolekyler.'   
 Børnevenlig: 'Planter er som små kokke. De bruger sollys som deres komfur til at lave deres egen mad fra luft og vand. De gemmer denne mad i bladene, så de kan vokse og blive stærke.'  
 Nu, omskriv disse:  
 1. 'Tyngdekraften er den kraft, der tiltrækker to legemer mod hinanden, proportional med deres masse og omvendt proportional med kvadratet på afstanden mellem dem.'  
-2. 'Et sort hul er en region i rumtiden, hvor tyngdekraften er så stærk, at intet, ikke engang lys, kan undslippe fra det.'
+2. 'Et sort hul er en sted i rumtiden, hvor tyngdekraften er så stærk, at intet, ikke engang lys, kan undslippe fra det.'
 
 **3\. Modsættende eksempler**
 
@@ -481,15 +482,15 @@ Skriv nu en ansøgning for en stilling som softwareudvikler.
 
 Prompt: Skriv tre kreative undskyldninger for at komme for sent på arbejde.
 Her er to eksempler: 
-1\. Jeg er desværre blevet forsinket fordi der var meget trafik.  
+1\. Jeg er desværre blevet forsinket, fordi der var meget trafik.  
 2\. Jeg bliver desværre forsinket på grund af tekniske problemer med toget.
 
-For mere avancerede metoder til at finde ud af, hvordan du kan vælge de bedste eksempler, se: [[Valg af gode eksempler og Active prompting]]`
+For at få hjælp til hvordan du kan vælge de bedste eksempler, se: [[Valg af gode eksempler og Active prompting]]`
         },
         {
           id: "bed-modellen-om-at-paatage-sig-et-persona",
           title: "👤 Bed modellen om at påtage sig et persona",
-          content: `Når vi beder en sprogmodel om at påtage sig en specifik persona kan det være et kraftfuldt værktøj i prompt engineering. Det kan hjælpe med at:
+          content: `Når vi beder en sprogmodel om at påtage sig et specifik persona kan det være et kraftfuldt værktøj i prompt engineering. Det kan hjælpe med at:
 
 1. Skabe mere engagerende og realistiske interaktioner  
 2. Tilpasse sprogmodellens tone og ekspertise til specifikke scenarier  
@@ -508,8 +509,8 @@ Prompt:	Du er en venlig bedstemor, der elsker at bage. Forklar en 8-årig, hvord
 1. Vær specifik om personens baggrund, ekspertise eller personlighedstræk. Nogle prompt engineers giver endda deres persona et navn.  
 2. Overvej at give et kort eksempel på, hvordan personaen kunne svare  
 3. Tilpas personaen til emnet og målgruppen   
-4. Eksperimenter med forskellige personaer for det samme emne, for at se hvordan det påvirker svarene.   
-5. Husk, at selvom sprogmodellen påtager sige en persona, er det stadig en sprogmodel og ikke en virkelig person   
+4. Eksperimenter med forskellige personaer, for at se hvordan det påvirker svarene.   
+5. Husk, at selvom sprogmodellen påtager sige et persona, er det stadig en sprogmodel og ikke en virkelig person   
 6. Forsøg ikke at skabe eller forstærke stereotyper
 
 Ved at mestre brugen af personaer i dine prompts kan du skabe mere engagerende, kontekstspecifikke og kreative interaktioner med sprogmodeller.`
@@ -517,14 +518,14 @@ Ved at mestre brugen af personaer i dine prompts kan du skabe mere engagerende, 
         {
           id: "marker-forskellige-dele-af-promptet",
           title: "✏️ Marker forskellige dele af promptet",
-          content: `Du kan gøre det nemmere for sprogmodellen at forstå, hvad du vil have den til, ved tydeligt at markere de forskellige dele af dit prompt. Man kan for eksempel markere dele af teksten med gåseøjne, semikolon eller XML tags (\<\>).
+          content: `Du kan gøre det nemmere for sprogmodellen at forstå, hvad du vil have den til, ved tydeligt at markere de forskellige dele af dit prompt. Man kan for eksempel markere dele af teksten med gåseøjne(""), semikolon(:) eller XML tags (\<\>).
 
 ### **Fordele ved at markere forskellige dele af prompten:** 
 
 1. Det gør det lettere for sprogmodellen at identificere og adressere specifikke dele af opgaven.   
 2. Det kan øge sammenhængen i sprogmodellens svar på tværs af flere forespørgsler   
 3. Det muliggør mere præcise og målrettede svar fra sprogmodellen.  
-4. Det gør det lettere for både sprogmodellen og prompteren at finde rundt i et kompliceret prompt
+4. Det gør det lettere for både sprogmodellen og prompteren at finde rundt i en kompliceret prompt
 
 Eksempel:
 
@@ -537,7 +538,7 @@ Prompt:	Jeg skal skrive et fødselsdagskort til min moster, Lone. Her er nogle i
 
 1. Vær sammenhængende i din brug af markering gennem hele prompten.   
 2. Kombiner forskellige markeringsmetoder for at adskille forskellige typer information.   
-3. Hold promptet overskueligt \- undgå overkomplicering med for mange markeringer.
+3. Hold prompten overskuelig \- undgå overkomplicering med for mange markeringer.
 
 Eksperimenter med forskellige markeringsmetoder for at finde den tilgang, der fungerer bedst for dine specifikke behov. Effektiv markering af promptdele kan væsentligt forbedre kvaliteten og præcisionen af sprogmodellens svar.`
         },
@@ -550,8 +551,6 @@ Eksperimenter med forskellige markeringsmetoder for at finde den tilgang, der fu
               id: "del-opgaverne-op-for-sprogmodellen",
               title: "1. Del opgaverne op for sprogmodellen",
               content: `Hvis du gerne vil have sprogmodellen til at gøre flere ting, hjælper det at skrive trinene eksplicit. 
-
-Hvis du gerne vil have sprogmodellen til at gøre flere ting, hjælper det at skrive trinene eksplicit. 
 
 ### **Fordele ved at opdele opgaver i trin:** 
 
@@ -572,11 +571,11 @@ Trin 1: Identificer 3-5 almindelige årsager til nedsat produktivitet på arbejd
 Trin 2: For hver årsag, foreslå en praktisk løsning  
 Trin 3: Beskriv en metode til at implementere hver løsning i min daglige rutine  
 Trin 4: Foreslå målbare måder at spore forbedringer i produktivitet  
-Trin 5:Giv tips til at opretholde motivation og stabilitet i implementeringen af disse ændringer
+Trin 5: Giv tips til at opretholde motivation og stabilitet i implementeringen af disse ændringer
 
 ### **Tips til at dele opgaverne op i trin:** 
 
-1. Pas på med ikke at gøre det overkompliceret for AI’en. Hvis du bryder opgaven ned i for mange trin, kan det gøre processen unødigt kompleks.   
+1. Pas på med ikke at gøre det overkompliceret for sprogmodellen. Hvis du bryder opgaven ned i for mange trin, kan det gøre processen unødigt kompleks.   
 2. Sørg for at trinene følger en logisk rækkefølge og vær specifik og konkret i hvert trin. 
 `
             },
@@ -588,12 +587,12 @@ Trin 5:Giv tips til at opretholde motivation og stabilitet i implementeringen af
 Prompt:	Giv mig en kort oversigt over alle trinene, opgaven kræver, hvor du beskriver hvert trin i en sætning.  
 Herefter, i stedet for at give mig alle trinene på en gang, giv mig kun et par trin af gangen. Vent til, at jeg beder om de næste trin, før du går videre. Jeg kommer eventuelt til at stille spørgsmål til trinene, som du skal forsøge at besvare.
 
-**Tilføjelsen foroven har to elementer:**
+Tilføjelsen foroven har to elementer:
 
-1. En forespørgsel for en oversigt over alle trinene  
-2. En forespørgsel om, ikke at give alle trinene på en gang
+1. En forespørgsel om en oversigt over alle trinene  
+2. En forespørgsel om ikke at give alle trinene på en gang
 
-Det første element sikrer, at vi ved, hvordan sprogmodellen har tænkt sig at løse opgaven, og giver os mulighed for at bede den om at bruge en anden metode. På den måde følger vi ikke bare sprogmodellen i blinde. Det andet element deler trinene op i flere prompts. Det kan især være godt, hvis vi for eksempel skal kode noget, og der er en fejl i et af trinene. Vi kan her løse fejlen, før vi fortsætter, så vi ikke skal lede efter tidligere instrukser efter at have fundet løsningen, og i værste fald forvirre sprogmodellen. At dele opgaven op på denne måde kræver, at vi vedholder en længere dialog med sprogmodellen.
+Det første element sikrer, at vi ved, hvordan sprogmodellen har tænkt sig at løse opgaven, og giver os mulighed for at bede den om at bruge en anden metode. På den måde følger vi ikke bare sprogmodellen i blinde. Det andet element deler trinene op i flere prompts. Det kan især være godt, hvis vi for eksempel skal kode noget, og der er en fejl i et af trinene. Vi kan her løse fejlen, før vi fortsætter, så vi ikke skal lede efter tidligere instrukser efter at have fundet løsningen og i værste fald forvirre sprogmodellen. At dele opgaven op på denne måde kræver, at vi vedholder en længere dialog med sprogmodellen.
 
 ### **Fordele ved at få sprogmodellen til at opdele opgaver**
 
@@ -611,7 +610,7 @@ Det første element sikrer, at vi ved, hvordan sprogmodellen har tænkt sig at l
 
 Prompt:	Jeg skal finde på et slogan til en strikkebutik. Kom med ti forslag.
 
-Prompt:	Jeg skal oversætte sætningen “Jeg har meget på hjerte” til engelsk. Kom med 10 bud på en oversættelse.
+Prompt:	Jeg skal oversætte sætningen “Jeg har meget på hjerte” til engelsk. Kom med 5 bud på en oversættelse.
 `
         },
         {
@@ -645,13 +644,13 @@ På den måde ved man, om man har skrevet en utydelig prompt. Derefter kan man k
         {
           id: "brug-af-kontekst-og-baggrundsinformation",
           title: "📚 Brug af forskellige metoder sat sammen",
-          content: `Nedenfor er tre eksempler på prompts, man kan give en sprogmodel, som inkluderer flere af metoderne, vi har diskuteret. Læs prompterne \- hvilke metoder kan du identificere? Kan du gøre prompterne endnu bedre?
+          content: `Nedenfor er tre eksempler på prompts, man kan give en sprogmodel, som inkluderer flere af metoderne, vi har diskuteret. Læs promptene \- hvilke metoder kan du identificere? Kan du gøre promptene endnu bedre?
 
 Prompt: Du er en erfaren mindfulness-instruktør, der brænder for at hjælpe nybegyndere med at finde ro gennem meditation. Jeg ønsker at lære mere om mindfulness og meditation for at reducere stress i mit liv. Kan du lave en detaljeret trin-for-trin guide til, hvordan jeg kan meditere som nybegynder? Inkluder 5-7 trin og giv særlige tips til, hvordan jeg kan håndtere distraktioner under meditationen. Vær positiv og opmuntrende i din vejledning, så jeg føler mig tryg ved at starte denne praksis.
 
 Prompt: Jeg skal til en jobsamtale som marketingkoordinator for et digitalt reklamebureau, og jeg vil gerne forberede nogle spørgsmål til intervieweren. Kan du komme med mindst fem forslag til relevante spørgsmål, jeg kan stille, der viser min interesse for virksomhedens kultur og vækststrategier? Efter hvert spørgsmål, giv en kort forklaring på, hvorfor hvert spørgsmål er værdifuldt. Hold tonen professionel og engagerende.
 
-Prompt: Jeg er teamleder for et projekt, der skal forbedre samarbejdet i vores afdeling. Kan du hjælpe med at komme med fem kreative aktiviteter, vores team kan lave for at styrke samarbejdet og tilliden? For hver aktivitet, giv en kort beskrivelse af, hvordan den udføres, og hvilke fordele den har for teambuilding (2-3 sætninger).`
+Prompt: Jeg er teamleder for et projekt, der skal forbedre samarbejdet i vores afdeling. Kan du hjælpe med at komme med fem kreative aktiviteter, vores team kan lave for at styrke samarbejdet og tilliden? For hver aktivitet, giv en kort beskrivelse over, hvordan den udføres, og hvilke fordele den har for teambuilding (2-3 sætninger).`
         }
       ]
     },
@@ -678,7 +677,7 @@ Rollerne er primært relevante for to grupper:
 - Professionelle, der bruger AI-værktøjer intensivt i deres arbejde
 
 ### **Overblik over rollerne:**
-- *User*: User rollen repræsenterer vedkommende, der bruger sprogmodellen.* 
+- *User*: User rollen repræsenterer vedkommende, der bruger sprogmodellen. 
 - *Assistant*: Assistant rollen er sprogmodellen selv, altså dens svar til user input.
 - *System*: System rollen er information, du giver til sprogmodellen, så den kan tilpasse sit svar.
 
@@ -693,28 +692,31 @@ Og i træer jeg gemmer mig.
 Hvem er jeg?
 
 
-En fordel ved at splitte dem op er, at system inputtet dermed kan gælde for flere user inputs. Når man holder begreberne adskilt, kan det også give komplekse opgaver en mere overskuelig struktur. På mange sprogmodeller er der en mulighed for at indstille system input under indstillinger. Hvis du selv programmerer en sprogmodel, så kan et system message hjælpe med at indstille, hvordan den skal håndtere input fra brugere. 
+En fordel ved at splitte dem op er, at system inputtet dermed kan gælde for flere user inputs. Når man holder begreberne adskilt, kan det også give komplekse opgaver en mere overskuelig struktur. På mange sprogmodeller er der en mulighed for at tilføje et system input under indstillinger. Hvis du selv programmerer en sprogmodel, så kan et system message hjælpe med at bestemme, hvordan den skal håndtere input fra brugere. 
 
 Hvordan rollerne bruges i praksis: 
 
-1. Chatbot udvikling  
+**1\. Chatbot udvikling**  
 - *System*: Definerer chatbottens personlighed og tilgang til, hvordan den skal svare  
 - *User*: Repræsenterer kundens input  
-- *Assistant*: Chatbottens svar  
-2. Specialiserede AI-assistenter   
+- *Assistant*: Chatbottens svar 
+
+**2\. Specialiserede AI-assistenter**   
 - *System*: Giver ekspertise inden for et specifikt domæne (f.eks. jura, medicin)  
 - *User*: Stiller fagspecifikke spørgsmål  
 - *Assistant*: Giver ekspertsvar baseret på system-instruktioner  
-3. Dataanalyse  
+
+**3\. Dataanalyse**  
 - *System*: Sætter regler for databehandling og præsentation  
 - *User*: Giver datasæt og analysespørgsmål  
 - *Assistant*: Udfører analyse og rapporterer resultater   
-4. Undervisningsværktøjer   
+
+**4\. Undervisningsværktøjer**   
 - *System*: Definerer pædagogisk tilgang og læringsmål  
 - *User* : Studerende, der stiller spørgsmål  
 - *Assistant*: Giver forklaringer tilpasset læringsniveauet 
 
-Nøglen til effektiv brug af disse roller ligger i at forstå deres indbyrdes dynamik og hvordan de kan tilpasses forskellige scenarier. Ved at adskille system instruktioner fra bruger input, kan vi skabe mere fleksible og genbrugelige AI-løsninger. Uanset om du er en udvikler, der bygger næste generations AI-systemer, eller en professionel, der søger at optimere din brug af AI-værktøjer, kan beherskelsen af User, Assistant og System roller åbne nye muligheder for innovation og effektivitet.`
+Nøglen til effektiv brug af disse roller ligger i at forstå deres indbyrdes dynamik, og hvordan de kan tilpasses forskellige scenarier. Ved at adskille system instruktioner fra bruger input, kan vi skabe mere fleksible og genbrugelige AI-løsninger. Uanset om du er en udvikler, der bygger næste generations AI-systemer, eller en professionel, der søger at optimere din brug af AI-værktøjer, kan beherskelsen af User, Assistant og System roller åbne nye muligheder for innovation og effektivitet.`
         },
         {
           id: "giv-reference-tekster",
@@ -767,7 +769,7 @@ Alt kan selvfølgelig ikke blive inkluderet i en opsummering, og derfor mister m
               id: "identificer-hensigten-af-et-user-input",
               title: "2. Identificer hensigten af et user input",
               content: `
-En anden situation, hvor det kan være fordelagtigt at dele opgaver op i mindre dele, er hvis vi har programmeret en sprogmodel, som skal kunne agere forskelligt i forhold til, hvilket user input den får. Det kan for eksempel være en sprogmodel, som både kan svare på generelle spørgsmål om et hotel, samt hjælpe med booking eller viderestille en klage. Alt efter området, skal vi give sprogmodellen et mere specifikt system besked, så den ved hvordan, den skal håndtere forespørgslen. Det kan derfor være nyttigt først at identificere hvilke af områderne, brugeren er interesseret i, før sprogmodellen prøver at hjælpe.
+En anden situation, hvor det kan være fordelagtigt at dele opgaver op i mindre dele, er, hvis vi har programmeret en sprogmodel, som skal kunne agere forskelligt i forhold til hvilket user input, den får. Det kan for eksempel være en sprogmodel, som både kan svare på generelle spørgsmål om et hotel, samt hjælpe med booking eller viderestille en klage. Alt efter området skal vi give sprogmodellen et mere specifikt system besked, så den ved hvordan, den skal håndtere forespørgslen. Det kan derfor være nyttigt først at identificere hvilke af områderne, brugeren er interesseret i, før sprogmodellen prøver at hjælpe.
 
 ### **Vi følger følgende trin:**
 
@@ -787,8 +789,8 @@ System:	Kunden vil gerne lave en klage. Du skal hjælpe ved \<giv instruktioner\
 
 ### **Fordele ved at identificere brugerens hensigt:**
 
-- *Skræddersyet hjælp:* Metoden gør det muligt for sprogmodellen at give mere skræddersyet hjælp, og kan derfor føre til en bedre performance.   
-- *Mindre regnekraft:* Alternativt skulle en system message inkludere alle instruktioner for alle slags henvendelser, hvilket ville kræve større regnekraft, og dermed være dyrere og muligvis langsommere.
+- *Skræddersyet hjælp:* Metoden gør det muligt for sprogmodellen at give mere skræddersyet hjælp. Det kan føre til en bedre performance.   
+- *Mindre regnekraft:* Alternativt skulle en system message inkludere alle instruktioner for alle slags henvendelser, hvilket ville kræve større regnekraft og dermed være dyrere og muligvis langsommere.
 `}  
           ]
           
@@ -809,7 +811,7 @@ Mange af metoderne i denne sektion og de næste sektioner er et forsøg på at g
   {
               id: "bed-modellen-om-selv-at-laese-problem",
               title: "1. Bed modellen om selv at løse problemet, før den giver et svar",
-              content: `Ofte kan det virke som om, at sprogmodeller foretrækker at være enig med brugeren. Hvis man kommer med et regnestykke og spørger, om det er korrekt, kan sprogmodellen derfor godt godkende regnestykket før, den egentlig har taget stilling til det. I stedet kan man bede sprogmodellen om at lave dens egne udregninger og dermed forhåbentligt give et mere korrekt svar. 
+              content: `Sprogmodeller virker til at foretrække at være enig med brugeren. Hvis man kommer med et regnestykke og spørger, om det er korrekt, kan sprogmodellen derfor godt godkende regnestykket før, den egentlig har taget stilling til det. I stedet kan man bede sprogmodellen om at lave dens egne udregninger og dermed forhåbentligt give et mere korrekt svar. 
 
 System:	Du vil blive præsenteret for en opgave og et svar. Du skal vurdere om svaret er korrekt eller forkert. Før du laver din vurdering, skal du komme med din egen udregning, da brugerens svar kan være forkert.  
 User: Opgaven: I 2024, hvad er aldersforskellen mellem den ældste og yngste præsident i USA, da de blev valgt?  
@@ -840,9 +842,9 @@ Et problem med denne tilgang er dog, at modellen nogle gange ændrer sit svar fr
             {
               id: "maieutic-socratic-prompting",
               title: "3. Maieutic/Socratic prompting",
-              content: `Maieutic eller Socraitic prompting er en metode, hvorved man vedholder en længere dialog med sprogmodellen. Metoden bygger på den Socratiske undervisningsmetode, hvor man i stedet for at give svaret til en elev stiller spørgsmål og dermed guider eleven til at tænke dybere over spørgsmålet og selv komme frem til et svar. 
+              content: `Maieutic eller Socraitic prompting er en metode, hvorved man vedholder en længere dialog med sprogmodellen. Metoden bygger på den Sokratiske undervisningsmetode, hvor man i stedet for at give svaret til en elev stiller spørgsmål og dermed guider eleven til at tænke dybere over spørgsmålet og selv komme frem til et svar. 
 
-I forhold til sprogmodeller fungerer metoden ved, at når modellen giver et svar, så spørger man ind til svaret. Man kan for eksempel bede den om at fortælle mere eller at uddybe dele af dens svar. Dermed kan modellen komme frem til et bedre og mere uddybende svar, og den kan i nogle tilfælde indse, at dens originale svar var ufuldkomment eller direkte forkert. 
+I forhold til sprogmodeller fungerer metoden ved, at når modellen giver et svar, så spørger man ind til svaret. Man kan for eksempel bede den om at fortælle mere eller at uddybe dele af dens svar. Dermed kan modellen komme frem til et bedre og mere uddybende svar, og den kan i nogle tilfælde indse, at dens originale svar var ufuldkomment eller endda forkert. 
 `
         },
         {
@@ -905,7 +907,7 @@ Metoden involverer to trin:
 - Recitation-Augmented Language models er især nyttige i situationer, hvor det er vigtigt at kunne dobbeltchecke, at svaret er rigtigt. Hvis brugeren kan se, hvad modellen har baseret svaret på, er det lettere at verificere, om det er et godt svar. 
 
 **Problem**  
-- Et problem med metoden er, at det ikke er let eller hurtigt at opdatere træningssættet, da modellen så skal trænes forfra. Hvis træningssættet ikke bliver opdateret, kan informationen indenfor nogle områder være forældet.`
+- Det er svært og tager lang tid at opdatere træningssættet, da modellen så skal trænes forfra. Hvis træningssættet ikke bliver opdateret, kan informationen indenfor nogle områder være forældet.`
       }
         ]
         },
@@ -922,7 +924,7 @@ Metoden involverer to trin:
 
 ### **Simpel implementering**
 
-At implementere Chain of Thought er i teorien så simpelt som at skrive en enkelt instruks, hvor man beder modellen om at dele ens "tankeprocess". Det kunne man for eksempel gøre som forneden:
+At implementere Chain of Thought er i teorien så simpelt som at skrive en enkelt instruks, hvor man beder modellen om at dele dens "tankeprocess". Det kunne man for eksempel gøre som forneden:
 
 System:	Forklar, trin for trin, hvordan man finder kvadratroden af 256 
 
@@ -976,7 +978,7 @@ Hvis problemerne er meget komplekse og sprogmodellen har brug for meget plads ti
       title: "3. Chain of Thought med og uden eksempler",
       content: `Eksemplerne vi hidtil har beskrevet er **zero shot** eksempler på Chain of Thought, hvilket betyder at vi ikke har givet sprogmodellen nogle eksempler på hvilke mellemtrin, vi forventer. Når man kombinerer Chain of Thought med **few shot** prompting, det vil sige, man giver den eksempler på tankegangen og mellemtrinene, man gerne vil have den til at generere, så hedder det **Manual Chain of Thought**. Manual Chain of Thought performer tit bedre end Zero Shot Chain of Thought, men kræver til gengæld, at man laver eller har eksempler, man kan give sprogmodellen.
 
-Et alternativ til Zero-Shot og Manual Chain of Thought er **Auto Chain of Thought**. I Auto Chain of Thought genererer sprogmodellen selv sine egne eksempler, som den kan bruge til at træne sig selv. I stedet for både at præsentere sprogmodellen for et spørgsmål og et svar eksempel, præsenterer man den kun for en mængde spørgsmål. Ud fra de spørgsmål genererer den selv svar med mellemtrin som en iterativ zero-prompting Chain of Thought. Svarene med mellemtrin, den har genereret, bruger den til sidst som eksempel til at svare bedst muligt på det spørgsmål, man egentlig ønsker svar på. Man kan tænke det som om, at sprogmodellen øver sig, før den rigtigt svarer. 
+Et alternativ til Zero Shot og Manual Chain of Thought er **Auto Chain of Thought**. I Auto Chain of Thought genererer sprogmodellen selv sine egne eksempler, som den kan bruge til at træne sig selv. I stedet for både at præsentere sprogmodellen for et spørgsmål og et svar eksempel, præsenterer man den kun for en mængde spørgsmål. Ud fra de spørgsmål genererer den selv svar med mellemtrin som en iterativ Zero Shot Chain of Thought. Svarene med mellemtrin, den har genereret, bruger den til sidst som eksempel til at svare bedst muligt på det spørgsmål, man egentlig ønsker svar på. Man kan tænke det som om, at sprogmodellen øver sig, før den rigtigt svarer. 
 
 ### **Trin i Auto Chain of Thought**
 - Man giver sprogmodellen en mængde spørgsmål og beder den svare på spørgsmålene ved at vise sin tankegang  
@@ -988,8 +990,8 @@ Auto Chain of Thought minder meget om en anden metode, som hedder **Analogical p
   ]
       },
         {
-          id: "least-to-most",
-          title: "🌱➡️🌳 Least-to-Most",
+          id: "least-to-most-prompting",
+          title: "🌱➡️🌳 Least-to-Most Prompting",
           content: `Least-to-Most prompting er et alternativ til Chain of Thought, som kræver en smule mere hjælp fra brugeren, men som til gengæld kan være bedre til komplekse problemstillinger. Denne metode er især god til tekstbaserede matematik problemer. 
 
 I Least-to-Most prompting spørger man først sprogmodellen, hvilke underproblemer, den skal løse, for at løse det overordnede problem. Efter sprogmodellen har identificeret underproblemerne, løser man dem en efter en. Typisk sker dette ved hjælp af en række prompts, hvor svarene til hver underproblem bliver en del af det nye prompt, men man kan også gøre det i et samlet prompt. Forneden er et eksempel:
@@ -1017,7 +1019,7 @@ Samlet løsning: Landmanden skal plante 80 træer langs markens omkreds.`
     {
       id: "ekspert",
       title: "Ekspert",
-      content: `I den her sektion præsenterer vi nogle metoder, hvor vi inkluderer eksterne redskaber som for eksempel en anden (sprog)model til at forbedre vores prompts. Flere af metoderne kræver kompetencer indenfor kodning. Det er ikke en fuldkommen gennemgang af metoderne, da man kunne skrive en længere guide til hver, men metoderne her beskrevet kan forhåbentlig give inspiration til videre research.`
+      content: `I den her sektion præsenterer vi metoder, hvor vi inkluderer eksterne redskaber som for eksempel en anden (sprog)model til at forbedre vores prompts. Flere af metoderne kræver kompetencer indenfor kodning. Det er ikke en fuldkommen gennemgang af metoderne, da man kunne skrive en længere guide til hver, men metoderne her beskrevet kan forhåbentlig give inspiration til videre research.`
         ,
       icon: "🏆",
       methods: [
@@ -1036,7 +1038,7 @@ Denne metode bliver for eksempel brugt til Retrieval-Augmented Generation (RAG) 
 - *Opdateret information:* RAG-chatbots kan let blive opdateret, så de har det nyeste data og informationer. Offentlige sprogmodeller bliver ikke lige så tit opdateret.   
 - *Korrekt information:* RAG-chatbots kan give mere korrekte oplysninger, da de ofte er trænet på data, som er blevet specielt udvalgt, og derfor kan være mere troværdig.   
 - *Links*: RAG-chatbot kan ofte give links til data, de har brugt til at besvare et spørgsmål. Det gør det lettere at dobbelt-checke vigtig information og bruge svaret til videre research.   
-- *Personaliserede:* RAG-chatbots er specialiserede indenfor specifikke områder. Man kan derudover give chatbotten specifikke informationer eller værktøjet, som kan gøre den bedre til at løse en given opgave.   
+- *Personaliserede:* RAG-chatbots er specialiserede indenfor specifikke områder. Man kan derudover give chatbotten specifikke informationer eller værktøjer, som kan gøre den bedre til at løse en given opgave.   
 - *Fejlhåndtering:* RAG-chatbotter er bedre til at indrømme, hvis de ikke ved noget, og de ikke kan give et godt svar. Her finder generelle sprogmodeller ofte på et svar, når de ikke har nok information. 
 
 Det er ikke så besværligt at programmere sin egen RAG, og man kan finde flere gode tutorials online, for eksempel den [her](https://medium.com/@suraj_bansal/build-your-own-ai-chatbot-a-beginners-guide-to-rag-and-langchain-0189a18ec401). `
@@ -1045,8 +1047,8 @@ Det er ikke så besværligt at programmere sin egen RAG, og man kan finde flere 
           id: "implementer-kode-i-din-prompt",
           title: "💻 Implementer kode i din prompt",
           content: `Sprogmodeller får ofte kritik for at fejle selv simple opgaver. For eksempel har mange forgæves forsøgt at få ChatGPT til korrekt at tælle mængden af bogstavet “r” i ordet “strawberry”. Det er fordi, at sprogmodeller fungerer ved, at de gætter det næste token, altså det næste bogstav eller ord. Det er en *sprog*model, og kan derfor ikke lave udregninger selv. Den kan derfor for eksempel komme til at gætte, at der er 2 r’er i stedet for 3\. Dog ville en simpel python kode let kunne udregne hvor mange r’er, der er i ordet “strawberry”:
-
-    r\_tæller \= “strawberry”.count(“r”)
+          
+    r_tæller = "strawberry".count("r")
 
 Sprogmodeller kan ikke eksekvere kode. Dog kan man, hvis man programmerer sin egen sprogmodel, give den ekstra funktionalitet i form af kode. Koden bliver ikke eksekveret af sprogmodellen, men for eksempel Python interpreter kan køre koden, hvis man har givet modellen adgang til det. 
 
@@ -1059,11 +1061,11 @@ I prompten kan du også kalde eksterne API’er og bruge det i en kode eksekveri
         {
           id: "lav-kald-til-eksterne-systemer",
           title: "🌐 Lav kald til eksterne systemer",
-          content: `Flere sprogmodeller og systemer til at programmere sprogsystemer har indbyggede funktioner, som man kan kalde i sit prompt. Et eksempel er i OpenAI, hvor man kalder eksterne systemer med [“function calling”](https://platform.openai.com/docs/guides/function-calling). 
+          content: `Der findes flere indbyggede funktioner, som man kan kalde i sit prompt. Et eksempel er i OpenAI, hvor man kalder eksterne systemer med [“function calling”](https://platform.openai.com/docs/guides/function-calling). 
 
 OpenAI identificerer fem kontekster, hvor det kan være nyttigt at bruge deres function calling:
 
-1. *Få assistenter til at hente data:* Hvis en bruger spørger en kundeservice chatbot om for eksempel, hvad deres sidste ordrer var, så kan en AI assistent hente data fra et internet system og besvare spørgsmålet  
+1. *Få assistenter til at hente data:* Hvis en bruger spørger en kundeservice chatbot om for eksempel, hvad deres sidste ordrer var, så kan en AI assistent hente data fra et internt system og besvare spørgsmålet  
 2. *Lad assistenten tage handlinger:* Hvis en AI kan tage handlinger, så kan den for eksempel booke et møde for brugeren eller bestille en vare.  
 3. *Lad assistenter lave udregninger:* En sprogmodel er ikke særlig god til at lave udregninger. I stedet kan den forbinde til en matematik funktion, der kan hjælpe.  
 4. *Byg gode arbejdsprocesser:* AI’en kan bruge en dataudtrækningspipeline, der indsamler rå tekst, konverterer den til strukturerede data og gemmer den i en database.  
@@ -1074,9 +1076,9 @@ Ligesom i den sidste metode, hvor vi implementerer kode, så kan sprogmodellen i
         {
           id: "tree-of-thought",
           title: "🌳 Tree of Thought",
-          content: `Tree of Thoughts er en prompting metode, som bygger ovenpå Chain of Thoughts, hvilket vi allerede har introduceret i begynder- og øvede sektionerne.
+          content: `Tree of Thoughts er en prompting metode, som bygger ovenpå [[Chain of Thought]].
 
-I stedet for at bede sprogmodellen om at evaluere tankegangen i et eller flere svar, evaluerer vi her hver trin i problemløsningen. Hvis modellen har gået galt i et trin, så kan vi gå tilbage til et tidligere trin. Det fører til en matrix baseret tilgang i sammenligning med den lineære tilgang i Chain of Thought. Nedenfor er en illustration af [Yao et al. (2023)](https://arxiv.org/abs/2305.10601), som først foreslog metoden:
+I stedet for at bede sprogmodellen om at evaluere tankegangen i et eller flere svar, evaluerer vi her hvert trin i problemløsningen. Hvis modellen har gået galt i et trin, så kan vi gå tilbage til et tidligere trin. Det fører til en matrix baseret tilgang i sammenligning med den lineære tilgang i Chain of Thought. Nedenfor er en illustration af [Yao et al. (2023)](https://arxiv.org/abs/2305.10601), som først foreslog metoden:
 
 Image: /ToT.png
 
@@ -1114,7 +1116,7 @@ Selvfølgelig ville det være meget sjovere at instruere vores egen prompt gener
 
 1.  *Upassende eksempler*
 
-Det kan være, at du vil have modellen til at løse et komplekst problem, men har givet simple eksempler, eller modsat. Det kan også være, den har fået eksempler fra tekst-genererings opgaver, men skal løse en matematisk opgave. I sådanne tilfælde kan eksemplerne forvirre modellen og endda forværre outputtet, fordi den tror, at den skal bruge en upassende tankegang til at løse problemet
+Det kan være, at du vil have modellen til at løse et komplekst problem, men har givet simple eksempler, eller modsat. Det kan også være, den har fået eksempler fra tekst-genererings opgaver, men skal løse en matematisk opgave. I sådanne tilfælde kan eksemplerne forvirre modellen og endda forværre outputtet, fordi den tror, at den skal bruge en upassende fremgangsmåde til at løse problemet
 
 2.  *Forkerte eksempler*
 
@@ -1124,22 +1126,22 @@ På samme måde er det ikke ideelt, hvis modellen får eksempler, hvor der er fe
 
 Active Prompting er blevet foreslået som en løsning til iterativt at mindske forkerte eksempler. Det gør den ved følgende metode:
 
-1. **Uncertainty Estimation:**  
+**1\. Uncertainty Estimation:**  
 - Sprogmodellen bliver præsenteret for en mængde spørgsmål, som den skal træne på.   
 - Den besvarer alle spørgsmålene med Chain of Thought en hvis mængde gange.   
 - Spørgsmålene bliver scoret på, hvor usikker modellen er på svaret. Det kan for eksempel være, at svar hvor modellen har fået det samme svar 4 ud af 5 gange er 20% usikker. Andre metoder kan også bruges, dog skal man huske at det ikke er særlig værdifuldt at spørge modellen om, hvor sikker den er, da sprogmodeller generelt fremstår meget sikre.   
           
-2. **Selection:**  
+**2\. Selection:**  
 - Spørgsmålene, hvor modellen er mest usikker, bliver udvalgt
 
 
-3. **Annotation:**  
+**3\. Annotation:**  
 - De udvalgte spørgsmål bliver annoteret, det vil sige rettet, manuelt
 
-4. **Final Inference:**  
+**4\. Final Inference:**  
 - De rettede usikre svar samt de mere sikre svar kan bruges som trænings eksempler i en Chain of Thought prompt
 
-På den måde kan modellen generere langt de fleste af dens egne eksempler og kun de eksempler, hvor den virker usikker og laver fejl, bliver rettet til manuelt af et eller flere mennesker. Det sparer tid og dermed også penge. Til gengæld koster det regnekraft og dermed nogle penge at finde frem til spørgsmålene, der skal annoteres. `
+På den måde kan modellen generere langt de fleste af dens egne eksempler og kun de eksempler, hvor den virker usikker og laver fejl, bliver rettet til manuelt af et eller flere mennesker. Det sparer tid og dermed også penge. Til gengæld koster det regnekraft og mange tokens og dermed også penge at finde frem til spørgsmålene, der skal annoteres. `
         },
         {
           id: "lav-systematiske-aendringer-og-test-det",
