@@ -68,18 +68,25 @@ export default function Sidebar({ onToggle }: SidebarProps) {
     onToggle(!isCollapsed)
   }
 
-  const handleMethodClick = (methodId: string) => {
-    const element = document.getElementById(methodId)
+  const scrollToElement = (elementId: string) => {
+    const element = document.getElementById(elementId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20 // 20px extra padding
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
     }
   }
 
+  const handleMethodClick = (methodId: string) => {
+    scrollToElement(methodId)
+  }
+
   const handleSectionClick = (sectionId: string) => {
-    const element = document.getElementById(`section-${sectionId}`)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+    scrollToElement(`section-${sectionId}`)
   }
 
   const toggleSection = (sectionId: string, e: React.MouseEvent) => {
