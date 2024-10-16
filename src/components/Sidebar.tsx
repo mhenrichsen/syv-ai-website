@@ -68,25 +68,18 @@ export default function Sidebar({ onToggle }: SidebarProps) {
     onToggle(!isCollapsed)
   }
 
-  const scrollToElement = (elementId: string) => {
-    const element = document.getElementById(elementId)
+  const handleMethodClick = (methodId: string) => {
+    const element = document.getElementById(methodId)
     if (element) {
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20 // 20px extra padding
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
 
-  const handleMethodClick = (methodId: string) => {
-    scrollToElement(methodId)
-  }
-
   const handleSectionClick = (sectionId: string) => {
-    scrollToElement(`section-${sectionId}`)
+    const element = document.getElementById(`section-${sectionId}`)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }
 
   const toggleSection = (sectionId: string, e: React.MouseEvent) => {
@@ -134,6 +127,13 @@ export default function Sidebar({ onToggle }: SidebarProps) {
             {isCollapsed ? <FiChevronRight size={24} /> : <FiChevronLeft size={24} />}
           </button>
         </div>
+        {isCollapsed && (
+          <button
+            onClick={toggleSidebar}
+            className="absolute inset-0 w-full h-full opacity-0"
+            aria-label="Expand sidebar"
+          />
+        )}
         <nav 
           className={`flex-grow p-4 overflow-y-auto ${
             isCollapsed ? 'opacity-0 invisible' : 'opacity-100 visible'
