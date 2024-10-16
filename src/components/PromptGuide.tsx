@@ -27,7 +27,7 @@ export interface GuideData {
 }
 
 export const promptGuideData: GuideData = {
-  title: "Prompting Guide",
+  title: "",
   sections: [
     {
       id: "oversigt",
@@ -1024,7 +1024,7 @@ Samlet løsning: Landmanden skal plante 80 træer langs markens omkreds.`
       icon: "🏆",
       methods: [
         {
-          id: "load-data-ved-hjaelp-af-embeddings",
+          id: "load-data-ved-hjælp-af-embeddings",
           title: "📂 Load data ved hjælp af embeddings",
           content: `Vi har allerede nævnt hvordan sprogmodellers begrænsede “context window” betyder at store mængde tekster ikke kan blive tilføjet som input af en bruger eller i en prompt. Det kan for eksempel være nyttigt at uploade en kilde med opdateret og troværdigt information, eller at gemme lange tidligere samtaler i prompten som kontekst for nye samtaler. Se evt. [[Del komplekse opgaver op i mindre dele]] og [[Giv reference tekster]].
 
