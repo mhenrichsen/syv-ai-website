@@ -6,37 +6,11 @@ import Header from '../Header'  // Update this import path if necessary
 import { promptGuideData, GuideData } from './PromptGuide'
 import ReactMarkdown from 'react-markdown'
 
-const processHighlights = (content: string) => {
-  const parts = content.split(/(\[\[highlight\]\]|\[\[\/highlight\]\])/);
-  let isHighlighting = false;
-  return (
-    <>
-      {parts.map((part, index) => {
-        if (part === '[[highlight]]') {
-          isHighlighting = true;
-          return null;
-        }
-        if (part === '[[/highlight]]') {
-          isHighlighting = false;
-          return null;
-        }
-        if (isHighlighting) {
-          return <span key={index} className="bg-blue-100 p-1 rounded inline-block whitespace-pre-wrap">{part}</span>;
-        }
-        return part;
-      })}
-    </>
-  );
-};
-
 const processContent = (content: string, setModalImage: (src: string | null) => void) => {
   const parts = content.split(/(Prompt:[\s\S]*?)(?=\n\n|$)|(System:[\s\S]*?)(?=\n\n|$)|(Image:[\s\S]*?)(?=\n\n|$)/g);
 
   const createInternalLink = (text: React.ReactNode): React.ReactNode => {
     if (typeof text !== 'string') return text;
-
-    const matches = text.match(/\[\[(.*?)\]\]/g);
-    if (!matches) return text;
 
     const elements = text.split(/(\[\[.*?\]\])/g).map((part, index) => {
       if (part.startsWith('[[') && part.endsWith(']]')) {
@@ -169,39 +143,9 @@ const processContent = (content: string, setModalImage: (src: string | null) => 
 
 const MarkdownComponents = {
   p: (props: any) => {
-    const { children } = props;
-    
-    // Function to extract prompt content
-    const extractPrompt = (text: string) => {
-      const match = text.match(/^Prompt:\s*([\s\S]*?)(?:\n\n|$)/);
-      return match ? match[1].trim() : null;
-    };
-
-    // Check if children is a string or an array of strings/elements
-    const textContent = Array.isArray(children) 
-      ? children.map(child => typeof child === 'string' ? child : '').join('')
-      : typeof children === 'string' ? children : '';
-
-    const promptContent = extractPrompt(textContent);
-
-    if (promptContent) {
-      return (
-        <div className="bg-blue-100 p-2 my-4 rounded">
-          <div className="flex items-start">
-            <span className="text-blue-800 font-medium w-16 flex-shrink-0">Prompt:</span>
-            <div className="text-gray-800 flex-1 whitespace-pre-wrap break-words">
-              {promptContent}
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    // If it's not a prompt, render as a normal paragraph
     return <p className="mb-4 whitespace-pre-line" {...props} />;
   },
   li: (props: any) => {
-    const { children } = props;
     return <li className="ml-4 mb-2 whitespace-pre-wrap break-words" {...props} />;
   },
   h1: (props: any) => <h1 className="text-2xl font-bold mb-4" {...props} />,

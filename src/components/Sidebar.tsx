@@ -8,14 +8,14 @@ interface Method {
   id: string;
   title: string;
   content: string;
-  implementations?: Method[]; // Add this line
+  implementations?: Method[];
 }
 
 interface Section {
   id: string;
   title: string;
   icon: string;
-  methods?: Method[]; // Make methods optional
+  methods?: Method[];
 }
 
 interface GuideData {
