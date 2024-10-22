@@ -6,6 +6,7 @@ import PhoneSidebar from './PhoneSidebar'
 import Header from '../Header'  // Update this import path if necessary
 import { promptGuideData, GuideData } from './PromptGuide'
 import ReactMarkdown from 'react-markdown'
+import { FaDownload } from 'react-icons/fa'
 
 const processContent = (content: string, setModalImage: (src: string | null) => void) => {
   const parts = content.split(/(Prompt:[\s\S]*?)(?=\n\n|$)|(System:[\s\S]*?)(?=\n\n|$)|(Image:[\s\S]*?)(?=\n\n|$)/g);
@@ -190,14 +191,27 @@ export default function MainPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <div className="pt-16"> {/* This accounts for the fixed header */}
+      <div className="pt-16 md:pt-24"> {/* Adjusted padding for mobile and desktop */}
+        {/* Enhanced download section with responsive positioning */}
+        <div className="py-3 px-4 sm:px-8 flex justify-end items-center mt-16 md:mt-0">
+          <a
+            href="/prompting-guide-syv-ai.pdf"
+            download
+            className="inline-flex items-center px-4 py-2 bg-white text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-sm"
+          >
+            <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download PDF
+          </a>
+        </div>
         {isDesktop ? (
           <div className="flex">
             <Sidebar onToggle={handleSidebarToggle} />
             <main className={`transition-all duration-300 ease-in-out flex-grow overflow-y-auto ${
               isSidebarCollapsed ? 'ml-16' : 'ml-72'
             }`}>
-              <div className="pt-4 pb-8 px-4 sm:px-8 max-w-3xl mx-auto"> {/* Reduced top padding here */}
+              <div className="px-4 sm:px-8 max-w-3xl mx-auto">
                 {guideData && (
                   <>
                     <h1 className="mb-8 text-4xl font-bold text-gray-900">{guideData.title}</h1>
