@@ -34,7 +34,7 @@ export const promptGuideData: GuideData = {
       title: "Oversigt over guiden",
       content: `Den her guide vil hjælpe dig med at få en bedre tilgang til, hvordan du kan bruge sprogmodeller såsom ChatGPT eller Claude på en mere effektiv måde ved at bruge “prompt engineering".  En “prompt” er en instruktion eller en anmodning, der gives til en sprogmodel, for at få et ønsket svar eller en bestemt form for output. Alle prompts er ikke lige gode og relevansen eller kvaliteten af sprogmodellens svar kan variere meget baseret på prompten. Det kræver øvelse at lære at skrive den perfekte prompt \- derfor denne guide\!
 
-*Guiden er delt ind i tre sektioner: for begynder, øvede og eksperter.* 
+*Guiden er delt ind i tre sektioner: for begyndere, øvede og eksperter.* 
 
 I **begynder sektionen** diskuterer vi hvordan man kan skrive en tydelig prompt med klare instruktioner. Det er prompts, som er passende primært, hvis du kommunikerer direkte med en sprogmodel, som for eksempel hvis du bruger ChatGPT eller Claude. 
 
