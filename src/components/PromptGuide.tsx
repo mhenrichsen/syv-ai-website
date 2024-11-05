@@ -1080,7 +1080,7 @@ Ligesom i den sidste metode, hvor vi implementerer kode, så kan sprogmodellen i
 
 I stedet for at bede sprogmodellen om at evaluere tankegangen i et eller flere svar, evaluerer vi her hvert trin i problemløsningen. Hvis modellen har gået galt i et trin, så kan vi gå tilbage til et tidligere trin. Det fører til en matrix baseret tilgang i sammenligning med den lineære tilgang i Chain of Thought. Nedenfor er en illustration af [Yao et al. (2023)](https://arxiv.org/abs/2305.10601), som først foreslog metoden:
 
-Image: /ToT.png
+Image: /ToT.PNG
 
 I illustrationen ser vi:
 - Normal input-output prompting, det vil sige standard prompting uden Chain of Thought eller Tree of Thought, genererer et output uden nogle mellemtrin.   
